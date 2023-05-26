@@ -1,0 +1,61 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("https://fonts.google.com/specimen/Outfit");
+  font-weight: 400, 700;
+}
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: hsl(212, 45%, 89%);
+  min-height: 100vh;
+}
+body .container {
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  margin: 5% 35% 5% 35%;
+  border-radius: 5%;
+}
+body .container img {
+  width: calc(100% - 0.5em);
+  height: auto;
+  padding: 0.5em;
+  border-radius: 10%;
+}
+body .container h2 {
+  color: hsl(218, 44%, 22%);
+  font-weight: 700;
+  padding: 1em;
+}
+body .container p {
+  color: hsl(220, 15%, 55%);
+  font-size: 15px;
+  font-weight: 400;
+  padding: 1em;
+}
+body .attribution {
+  font-size: 11px;
+  text-align: center;
+}
+body .attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (max-width: 375px) {
+  body .container {
+    margin: 10% 5%;
+  }
+  body .container h2 {
+    font-size: 1.5em;
+  }
+}/*# sourceMappingURL=style.css.map */
