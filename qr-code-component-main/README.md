@@ -4,11 +4,11 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 
 ## Overview
 
-### Screenshot
+![preview](./design/desktop-preview.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://tasandra.github.io/qr-code-component-main/)
+- Solution URL: [qr-code-component-main](https://tasandra.github.io/qr-code-component-main/)
 
 ## My process
 
@@ -21,5 +21,5 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/tasandra)
+- Frontend Mentor - [@tasandra](https://www.frontendmentor.io/profile/tasandra)
 
