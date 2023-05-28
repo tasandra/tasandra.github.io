@@ -16,7 +16,7 @@ Users should be able to:
 ![screenshot](./design/desktop-preview.jpg)
 
 ### Links
-- Live Site URL: [Add live site URL here](https://tasandra.github.io/news-homepage-main/)
+- Live Site URL: [news-homepage](https://tasandra.github.io/news-homepage-main/)
 
 ## My process
 
