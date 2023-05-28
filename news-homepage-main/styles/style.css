@@ -1,0 +1,234 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-VariableFont_slnt,wght.ttf");
+  font-weight: 400, 700, 800;
+}
+body {
+  max-width: 80%;
+  margin: auto;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+header {
+  margin: 2rem 0 2rem 0;
+}
+header img.menu-open,
+header img.menu-close {
+  display: none;
+}
+header .wrapper {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+header .wrapper .logo img {
+  max-height: 30px;
+  display: block;
+}
+header .wrapper nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  gap: 3rem;
+}
+header .wrapper nav ul a {
+  text-decoration: none;
+  color: hsl(236, 13%, 42%);
+  font-weight: 400;
+}
+header .wrapper nav ul a:hover {
+  color: hsl(5, 85%, 63%);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 66% 1fr;
+  grid-template-areas: "hero hero aside" "col col aside" "news news news";
+  gap: 2rem;
+}
+.container .hero img {
+  grid-area: hero;
+  width: 100%;
+}
+.container .hero .col {
+  grid-area: col;
+  display: grid;
+  align-items: end;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 4em;
+  gap: 2em;
+}
+.container .hero .col .col1 h1 {
+  color: hsl(240, 100%, 5%);
+  font-size: 3em;
+  font-weight: 800;
+  padding-right: 1em;
+}
+.container .hero .col .col2 p {
+  color: hsl(236, 13%, 42%);
+  font-size: 15px;
+  font-weight: 400;
+}
+.container .hero .col .col2 button {
+  background-color: hsl(5, 85%, 63%);
+  color: hsl(36, 100%, 99%);
+  padding: 1.5em 3em 1.5em 3em;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 4em;
+}
+.container .hero .col .col2 button:hover {
+  background-color: hsl(240, 100%, 5%);
+}
+.container .aside {
+  grid-area: aside;
+  background-color: hsl(240, 100%, 5%);
+  color: hsl(233, 8%, 79%);
+  padding: 2em;
+}
+.container .aside h2 {
+  color: hsl(35, 77%, 62%);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-weight: 800;
+}
+.container .aside ul li h3 {
+  padding-bottom: 1em;
+  cursor: pointer;
+}
+.container .aside ul li h3:hover {
+  color: hsl(35, 77%, 62%);
+}
+.container .aside ul li {
+  list-style: none;
+  text-align: left;
+  line-height: 1.5em;
+}
+.container .aside ul li p {
+  color: 15px;
+  font-size: 15px;
+  font-weight: 400;
+}
+.container .aside hr {
+  border: none;
+  height: 1px;
+  color: hsl(233, 8%, 79%);
+  background-color: hsl(233, 8%, 79%);
+  margin: 1em 0 1em 0;
+}
+
+.raw {
+  grid-area: news;
+  display: grid;
+  grid-template-columns: 31.5% 34.5% 1fr;
+  gap: 2em;
+  margin: 3em 0 2em 0;
+}
+.raw .news img {
+  float: left;
+  max-width: 60%;
+  max-height: 200px;
+  margin-right: 1em;
+}
+.raw .news h2 {
+  font-size: 3em;
+  color: hsl(233, 8%, 79%);
+}
+.raw .news h3 {
+  padding-top: 1em;
+  cursor: pointer;
+}
+.raw .news h3:hover {
+  color: hsl(5, 85%, 63%);
+}
+.raw .news p {
+  color: hsl(236, 13%, 42%);
+  font-size: 15px;
+  font-weight: 400;
+  padding-top: 1em;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (max-width: 375px) {
+  body.open {
+    overflow: hidden;
+  }
+  body.open .wrapper nav {
+    display: flex;
+  }
+  body.open .wrapper img.menu-open {
+    display: none;
+  }
+  body.open .wrapper img.menu-close {
+    display: block;
+  }
+  body header .wrapper img.menu-open {
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+  body header .wrapper img.menu-close {
+    display: none;
+    z-index: 3;
+  }
+  body header .wrapper nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 66vw;
+    padding: 1rem;
+    background: hsl(36, 100%, 99%);
+    padding-top: 8rem;
+    display: none;
+    z-index: 2;
+  }
+  body header .wrapper nav ul {
+    flex-direction: column;
+  }
+  body .container {
+    display: flex;
+    flex-direction: column;
+  }
+  body .container .hero .col, body .container .raw {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    font-size: 0.8em;
+  }
+  body .container .raw .news img {
+    max-width: 30%;
+  }
+  body .container .raw .news h2 {
+    font-size: 2em;
+  }
+  body .container .raw .news h3 {
+    padding-top: 0.3em;
+    font-size: 1em;
+  }
+  body .container .raw .news p {
+    padding-top: 0.3em;
+    font-size: 0.8em;
+  }
+}/*# sourceMappingURL=style.css.map */
