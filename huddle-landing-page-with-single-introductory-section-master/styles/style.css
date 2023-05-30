@@ -1,0 +1,120 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("https://fonts.google.com/specimen/Open+Sans");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("https://fonts.google.com/specimen/Poppins");
+  font-weight: 400, 600;
+}
+body {
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background-color: hsl(257, 40%, 49%);
+  background-image: url("/images/bg-desktop.svg");
+  background-repeat: no-repeat;
+}
+
+.header {
+  min-height: 10%;
+  margin-left: 10%;
+  padding: 2em 0 2em 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: calc(10% - 2em) 10%;
+}
+.container img {
+  max-width: 50%;
+}
+.container .info {
+  color: #fff;
+  padding: 2em;
+  line-height: 1.5;
+}
+.container .info h1 {
+  font-family: "Poppins";
+  font-weight: 600;
+}
+.container .info p {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-weight: 400;
+}
+.container .info button {
+  align-items: center;
+  background-color: #ffffff;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: hsl(257, 40%, 49%);
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 1em;
+  min-width: 200px;
+  min-height: 40px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+  touch-action: manipulation;
+}
+.container .info button:hover {
+  background-color: hsl(300, 69%, 71%);
+  color: #ffffff;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+footer .icons {
+  text-align: right;
+  margin-right: 5em;
+}
+footer .icons img {
+  width: 30px;
+  padding-right: 0.5em;
+}
+footer .attribution {
+  font-size: 11px;
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+footer .attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (max-width: 375px) {
+  .container {
+    flex-direction: column;
+  }
+  .container img {
+    max-width: 100%;
+  }
+  .container .info {
+    text-align: center;
+  }
+  footer .icons {
+    text-align: center;
+    margin-right: 0;
+  }
+}/*# sourceMappingURL=style.css.map */

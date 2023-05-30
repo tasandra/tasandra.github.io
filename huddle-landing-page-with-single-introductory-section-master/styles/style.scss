@@ -1,0 +1,116 @@
+@import 'variables';
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('https://fonts.google.com/specimen/Open+Sans');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('https://fonts.google.com/specimen/Poppins');
+    font-weight: 400, 600;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    background-color: $violet;
+    background-image: url('/images/bg-desktop.svg');
+    background-repeat: no-repeat;
+}
+
+.header {
+    min-height: 10%;
+    margin-left: 10%;
+    padding: 2em 0 2em 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: calc(10% - 2em) 10%;
+
+    img {
+        max-width: 50%;
+    }
+
+    .info {
+        color: #fff;
+        padding: 2em;
+        line-height: 1.5;
+
+        h1 {
+            font-family: 'Poppins';
+            font-weight: 600;
+        }
+
+        p {
+            margin-top: 2em;
+            margin-bottom: 2em;
+            font-weight: 400;
+        }
+
+        button {
+            align-items: center;
+            background-color: #ffffff;
+            border: 0;
+            border-radius: 100px;
+            box-sizing: border-box;
+            color: $violet;
+            cursor: pointer;
+            display: inline-flex;
+            font-weight: 400;
+            justify-content: center;
+            line-height: 1em;
+            min-width: 200px;
+            min-height: 40px;
+            overflow: hidden;
+            padding: 0px;
+            padding-left: 40px;
+            padding-right: 40px;
+            text-align: center;
+            touch-action: manipulation;
+            &:hover {
+                background-color: $softMagenta;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    .icons {
+        text-align: right;
+        margin-right: 5em;
+        img {
+            width: 30px;
+            padding-right: .5em;
+        }
+    }
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    
+    .attribution a {
+        color: hsl(228, 45%, 44%);
+    }
+}
+
+@import 'media';
