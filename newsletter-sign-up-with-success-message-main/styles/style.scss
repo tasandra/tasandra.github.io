@@ -1,0 +1,186 @@
+@import 'variables';
+
+@mixin button($col: $darkSlateGrey) {
+    border-radius: 7px;
+    border: none;
+    background-color: $col;
+    color: $white;
+    padding: 1em;
+
+    &:hover {
+        background: linear-gradient(90deg, $pink 0%, $tomato 100%);
+        border: none;
+        box-shadow: 0 3px 10px $pink;
+        ;
+    }
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Regular.ttf');
+    font-weight: 400, 700;
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url('../assets/fonts/Roboto-Bold.ttf');
+    font-weight: 700;
+}
+
+body {
+    background-color: $darkSlateGrey;
+
+    .container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $white;
+        min-width: 60%;
+        min-height: auto;
+        border-radius: 3%;
+
+        .col {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .col1 {
+                margin: 1em 2em;
+                padding-top: 10%;
+                line-height: 1.5;
+
+                h1 {
+                    font-family: 'Roboto Bold';
+                    font-size: 3em;
+                    font-weight: 700;
+                }
+
+                p {
+                    font-size: $fontSizeParagraph;
+                    color: $charcoalGrey;
+                    font-weight: 200;
+                    padding-top: 1em;
+                    padding-bottom: 1em;
+                }
+
+                ul li {
+                    background: url("../assets/images/icon-list.svg") no-repeat left center;
+                    font-size: $fontSizeParagraph;
+                    color: $charcoalGrey;
+                    font-weight: 200;
+                    padding: 5px 25px 5px 25px;
+                    list-style: none;
+                    margin: 0;
+                    vertical-align: middle;
+                    line-height: 2;
+                }
+
+                #emailForm {
+                    display: flex;
+                    flex-direction: column;
+                    padding-top: 2em;
+                    gap: 1em;
+
+                    label {
+                        font-weight: bold;
+                        display: inline-flex;
+                        justify-content: space-between;
+                    }
+
+                    #email {
+                        border-radius: 7px;
+                        border: 1px solid $grey;
+                        padding: 1em;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        &:hover {
+                            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+                        }
+
+                        &:invalid {
+                            background-color: $lightTomato;
+                            border: 1px solid $tomato;
+                            color: $tomato;
+                        }
+                    }
+
+                    .error-message {
+                        color: $tomato;
+                        font-size: $fontSizeParagraph;
+                        font-weight: 200;
+                        display: none;
+                    }
+
+                    input[type="submit"] {
+                        @include button();
+                    }
+                }
+            }
+
+            .col2 {
+                margin: 1em 1em;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    #email-success {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $white;
+        max-width: 30%;
+        max-height: auto;
+        border-radius: 3%;
+        padding: 2em;
+
+        img {
+            max-width: 40px;
+        }
+
+        h2 {
+            font-family: 'Roboto Bold';
+            font-size: 2em;
+            font-weight: 700;
+            margin-top: .5em;
+            margin-bottom: .5em;
+        }
+
+        p {
+            font-size: $fontSizeParagraph;
+            color: $charcoalGrey;
+            font-weight: 200;
+            #user-email {
+                font-weight: bold;
+            }
+        }
+        #dismiss-button {
+            @include button();
+            width: 100%;
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+    }
+
+}
+
+@import 'media';

@@ -1,0 +1,198 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Regular.ttf");
+  font-weight: 400, 700;
+}
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("../assets/fonts/Roboto-Bold.ttf");
+  font-weight: 700;
+}
+body {
+  background-color: hsl(234, 29%, 20%);
+}
+body .container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: hsl(0, 0%, 100%);
+  min-width: 60%;
+  min-height: auto;
+  border-radius: 3%;
+}
+body .container .col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body .container .col .col1 {
+  margin: 1em 2em;
+  padding-top: 10%;
+  line-height: 1.5;
+}
+body .container .col .col1 h1 {
+  font-family: "Roboto Bold";
+  font-size: 3em;
+  font-weight: 700;
+}
+body .container .col .col1 p {
+  font-size: 0.8em;
+  color: hsl(235, 18%, 26%);
+  font-weight: 200;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+body .container .col .col1 ul li {
+  background: url("../assets/images/icon-list.svg") no-repeat left center;
+  font-size: 0.8em;
+  color: hsl(235, 18%, 26%);
+  font-weight: 200;
+  padding: 5px 25px 5px 25px;
+  list-style: none;
+  margin: 0;
+  vertical-align: middle;
+  line-height: 2;
+}
+body .container .col .col1 #emailForm {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+  gap: 1em;
+}
+body .container .col .col1 #emailForm label {
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: space-between;
+}
+body .container .col .col1 #emailForm #email {
+  border-radius: 7px;
+  border: 1px solid hsl(231, 7%, 60%);
+  padding: 1em;
+}
+body .container .col .col1 #emailForm #email:focus {
+  outline: none;
+}
+body .container .col .col1 #emailForm #email:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+body .container .col .col1 #emailForm #email:invalid {
+  background-color: hsl(6, 53%, 93%);
+  border: 1px solid hsl(4, 100%, 67%);
+  color: hsl(4, 100%, 67%);
+}
+body .container .col .col1 #emailForm .error-message {
+  color: hsl(4, 100%, 67%);
+  font-size: 0.8em;
+  font-weight: 200;
+  display: none;
+}
+body .container .col .col1 #emailForm input[type=submit] {
+  border-radius: 7px;
+  border: none;
+  background-color: hsl(234, 29%, 20%);
+  color: hsl(0, 0%, 100%);
+  padding: 1em;
+}
+body .container .col .col1 #emailForm input[type=submit]:hover {
+  background: linear-gradient(90deg, hsl(346, 100%, 66%) 0%, hsl(4, 100%, 67%) 100%);
+  border: none;
+  box-shadow: 0 3px 10px hsl(346, 100%, 66%);
+}
+body .container .col .col2 {
+  margin: 1em 1em;
+}
+body .container .col .col2 img {
+  width: 100%;
+}
+body #email-success {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: hsl(0, 0%, 100%);
+  max-width: 30%;
+  max-height: auto;
+  border-radius: 3%;
+  padding: 2em;
+}
+body #email-success img {
+  max-width: 40px;
+}
+body #email-success h2 {
+  font-family: "Roboto Bold";
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+body #email-success p {
+  font-size: 0.8em;
+  color: hsl(235, 18%, 26%);
+  font-weight: 200;
+}
+body #email-success p #user-email {
+  font-weight: bold;
+}
+body #email-success #dismiss-button {
+  border-radius: 7px;
+  border: none;
+  background-color: hsl(234, 29%, 20%);
+  color: hsl(0, 0%, 100%);
+  padding: 1em;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+body #email-success #dismiss-button:hover {
+  background: linear-gradient(90deg, hsl(346, 100%, 66%) 0%, hsl(4, 100%, 67%) 100%);
+  border: none;
+  box-shadow: 0 3px 10px hsl(346, 100%, 66%);
+}
+
+@media only screen and (max-width: 618px) {
+  body {
+    background-color: none;
+  }
+  body .container {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    transform: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  body .container .col {
+    flex-direction: column-reverse;
+  }
+  body .container .col .col1 h1 {
+    font-size: 2em;
+  }
+  body .container .col .col2 {
+    margin: 0;
+    padding: 0;
+  }
+  body #email-success {
+    z-index: 1;
+    top: 0%;
+    left: 0%;
+    right: 0;
+    transform: none;
+    min-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    justify-content: space-around;
+  }
+}/*# sourceMappingURL=style.css.map */
