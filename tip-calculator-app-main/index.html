@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+  <header>
+    <img src="./images/logo.svg" alt="">
+  </header>
+  <div class="container">
+
+    <div class="col1">
+      <label for="bill">Bill</label>
+      <input id="bill" type="text" maxlength="7" placeholder="0">
+      <label for="select">Select Tip %</label>
+      <div class="options" id="options">
+        <button onclick="calculateTip('5')">5%</button>
+        <button onclick="calculateTip('10')">10%</button>
+        <button onclick="calculateTip('15')">15%</button>
+        <button onclick="calculateTip('25')">25%</button>
+        <button onclick="calculateTip('50')">50%</button>
+        <input type="text" id="custom" maxlength="3" placeholder="Custom">
+      </div>
+      <label for="people">Number of People
+        <span id="error" class="error-message"></span>
+      </label>
+      <input id="people" type="text" maxlength="2" placeholder="0">
+    </div>
+
+    <div class="col2">
+      <div class="result">
+        <div class="row">
+          <h4>Tip Amount<br><span>/ person</span></h4>
+          <h1 id="tipAmount">$0.00</h1>
+        </div>
+        <div class="row">
+          <h4>Total<br><span>/ person</span></h4>
+          <h1 id="totalAmount">$0.00</h1>
+        </div>
+      </div>
+      <button id="reset">Reset</button>
+    </div>
+
+  </div>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script src="script.js"></script>
+</body>
+</html>

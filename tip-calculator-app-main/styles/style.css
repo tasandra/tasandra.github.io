@@ -1,0 +1,181 @@
+@import 'https://fonts.googleapis.com/css?family=specimen:400,700|Space Mono:700&display=swap';
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(185, 41%, 84%);
+}
+body header {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .container {
+  font-family: "Space Mono";
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  color: hsl(186, 14%, 43%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: hsl(0, 0%, 100%);
+  min-width: 60%;
+  min-height: auto;
+  border-radius: 20px;
+  padding: 2em;
+  gap: 2em;
+}
+body .container .col1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  gap: 1em;
+}
+body .container .col1 label {
+  padding-top: 1em;
+  display: inline-flex;
+  justify-content: space-between;
+}
+body .container .col1 label .error-message {
+  color: rgba(255, 102, 0, 0.8784313725);
+  display: none;
+}
+body .container .col1 input[type=text] {
+  width: auto;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: none;
+  text-align: right;
+  color: hsl(183, 100%, 15%);
+  font-family: "Space Mono";
+  font-size: 1.5em;
+  background: hsl(189, 41%, 97%);
+  background-image: url(../images/icon-dollar.svg);
+  background-position: 1em 1em;
+  background-repeat: no-repeat;
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  transition: width 0.3s ease-in-out;
+}
+body .container .col1 input[type=text]:focus {
+  outline: none;
+  border: 1px solid hsl(172, 67%, 45%);
+}
+body .container .col1 input[type=text]:last-child {
+  background-image: url(../images/icon-person.svg);
+}
+body .container .col1 .options {
+  display: grid;
+  grid-template-rows: repeat(2, 3em);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  margin: 1em 0 1em 0;
+}
+body .container .col1 .options button {
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(189, 41%, 97%);
+  font-family: "Space Mono";
+  font-size: 1.5em;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+body .container .col1 .options button:active,
+body .container .col1 .options button:focus,
+body .container .col1 .options button:visited {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  outline: none;
+  border: 1px solid hsl(172, 67%, 45%);
+}
+body .container .col1 .options #custom {
+  min-width: 30%;
+  background: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  font-family: "Space Mono";
+  text-align: center;
+  font-size: 1vw;
+  border-radius: 15px;
+  cursor: pointer;
+}
+body .container .col2 {
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 20px;
+  width: 50%;
+}
+body .container .col2 .result {
+  padding: 1em;
+}
+body .container .col2 .result .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+body .container .col2 .result .row h4 {
+  color: hsl(0, 0%, 100%);
+}
+body .container .col2 .result .row h4 span {
+  color: hsl(184, 14%, 56%);
+  font-size: 0.5em;
+}
+body .container .col2 .result .row h1 {
+  color: hsl(172, 67%, 45%);
+}
+body .container .col2 #reset {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 80%;
+  background-color: hsl(186, 14%, 43%);
+  color: hsl(183, 100%, 15%);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 20px;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+body .attribution {
+  font-size: 11px;
+  text-align: center;
+}
+body .attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (max-width: 618px) {
+  body .container {
+    position: relative;
+    flex-direction: column;
+    top: 0%;
+    left: 0%;
+    transform: none;
+    width: 100%;
+    height: auto;
+    margin-top: 30%;
+  }
+  body .container .col1 {
+    width: 100%;
+  }
+  body .container .col1 .options {
+    grid-template-rows: repeat(3, 3em);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  body .container .col1 .options #custom {
+    font-size: 3vw;
+  }
+  body .container .col2 {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */

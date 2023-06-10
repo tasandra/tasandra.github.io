@@ -1,0 +1,183 @@
+@import 'variables';
+@import 'https://fonts.googleapis.com/css?family=specimen:400,700|Space Mono:700&display=swap';
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $lightGrayishCyan;
+
+    header {
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container {
+        font-family: 'Space Mono';
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        color: $darkGrayishCyan;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $white;
+        min-width: 60%;
+        min-height: auto;
+        border-radius: 20px;
+        padding: 2em;
+        gap: 2em;
+
+        .col1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 50%;
+            gap: 1em;
+
+            label {
+                padding-top: 1em;
+                display: inline-flex;
+                justify-content: space-between;
+
+                .error-message {
+                    color: #ff6600e0;
+                    display: none;
+                }
+            }
+
+            input[type=text] {
+                width: auto;
+                box-sizing: border-box;
+                border-radius: 20px;
+                border: none;
+                text-align: right;
+                color: $veryDarkCyan;
+                font-family: 'Space Mono';
+                font-size: 1.5em;
+                background: $veryLightGrayishCyan;
+                background-image: url(../images/icon-dollar.svg);
+                background-position: 1em 1em;
+                background-repeat: no-repeat;
+                padding: .5em 1.5em 0.5em 1.5em;
+                transition: width 0.3s ease-in-out;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid $strongCyan;
+                }
+            }
+
+            input[type=text]:last-child {
+                background-image: url(../images/icon-person.svg);
+            }
+
+            .options {
+                display: grid;
+                grid-template-rows: repeat(2, 3em);
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1em;
+                margin: 1em 0 1em 0;
+
+                button {
+                    background-color: $veryDarkCyan;
+                    color: $veryLightGrayishCyan;
+                    font-family: 'Space Mono';
+                    font-size: 1.5em;
+                    border-radius: 15px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                button:active,
+                button:focus,
+                button:visited {
+                    background-color: $strongCyan;
+                    color: $veryDarkCyan;
+                    outline: none;
+                    border: 1px solid $strongCyan;
+
+                }
+
+                #custom {
+                    min-width: 30%;
+                    background: $veryLightGrayishCyan;
+                    color: $veryDarkCyan;
+                    font-family: 'Space Mono';
+                    text-align: center;
+                    font-size: 1vw;
+                    border-radius: 15px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .col2 {
+            background-color: $veryDarkCyan;
+            border-radius: 20px;
+            width: 50%;
+
+            .result {
+                padding: 1em;
+
+                .row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 2em;
+
+                    h4 {
+                        color: $white;
+
+                        span {
+                            color: $grayishCyan;
+                            font-size: .5em;
+                        }
+                    }
+
+                    h1 {
+                        color: $strongCyan;
+                    }
+
+                }
+            }
+
+            #reset {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                min-width: 80%;
+                background-color: $darkGrayishCyan;
+                color: $veryDarkCyan;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                border-radius: 20px;
+                border: none;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .attribution a {
+        color: hsl(228, 45%, 44%);
+    }
+}
+
+@import 'media';

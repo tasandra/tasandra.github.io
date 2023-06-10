@@ -1,0 +1,29 @@
+@media only screen and (max-width: 618px) {
+
+    body {
+        .container {
+            position: relative;
+            flex-direction: column;
+            top: 0%;
+            left: 0%;
+            transform: none;
+            width: 100%;
+            height: auto;
+            margin-top: 30%;
+
+            .col1 {
+                width: 100%;
+                .options {
+                    grid-template-rows: repeat(3, 3em);
+                    grid-template-columns: repeat(2, 1fr);
+                    #custom {                   
+                        font-size: 3vw;                      
+                    }
+                }
+            }
+            .col2 {
+                width: 100%;
+            }
+        }
+    }
+}
