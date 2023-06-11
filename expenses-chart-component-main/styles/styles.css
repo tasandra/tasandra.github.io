@@ -1,0 +1,137 @@
+@import 'https://fonts.googleapis.com/css?family=specimen:400,700|DM+Sans:400,700&display=swap';
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(27, 66%, 92%);
+  font-family: "DM Sans";
+}
+body .balance {
+  display: flex;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 50%;
+  min-height: auto;
+  border-radius: 20px;
+  padding: 2em;
+  gap: 2em;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: hsl(10, 79%, 65%);
+  color: hsl(33, 100%, 98%);
+  top: 15%;
+}
+body .card {
+  display: flex;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 50%;
+  min-height: auto;
+  border-radius: 20px;
+  padding: 2em;
+  gap: 2em;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: hsl(33, 100%, 98%);
+  color: hsl(25, 47%, 15%);
+  top: 60%;
+}
+body .card .chart {
+  margin-top: 1em;
+  height: 120px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2em;
+  list-style: none;
+}
+body .card .chart .progress {
+  background: none;
+  height: 100px;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  text-align: end;
+  transition: 0.3s ease;
+}
+body .card .chart .progress .amount {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 3em;
+  border-radius: 5px;
+  background-color: hsl(10, 79%, 65%);
+  transition: 0.1s ease-in-out;
+}
+body .card .chart .progress .amount::after {
+  content: attr(data-amount);
+  position: absolute;
+  top: -40px;
+  transform: translateX(-50%);
+  left: 50%;
+  background-color: hsl(25, 47%, 15%);
+  color: hsl(33, 100%, 98%);
+  padding: 0.5em;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+body .card .chart .progress .amount:hover {
+  background-color: hsl(10, 69%, 72%);
+}
+body .card .chart .progress .amount:hover::after {
+  opacity: 1;
+}
+body .card .chart .day {
+  text-align: center;
+  color: hsl(28, 10%, 53%);
+}
+body .card .total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+body .card .total h1 {
+  font-size: 3em;
+}
+body .card .total h3 {
+  font-size: 1em;
+}
+body .card .total h4 {
+  color: hsl(28, 10%, 53%);
+}
+
+@media only screen and (max-width: 618px) {
+  main .balance {
+    top: 5%;
+    left: 5%;
+    transform: none;
+    width: 90%;
+    height: auto;
+  }
+  main .card {
+    transform: none;
+    top: 25%;
+    width: 90%;
+    left: 5%;
+  }
+  main .card .chart {
+    gap: 0.5em;
+  }
+  main .card .chart .progress .amount {
+    width: 1.5em;
+  }
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Expenses chart component</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+  <main>
+    <div class="balance">
+      <div class="text">
+        <h4> My balance</h4>
+        <h2>$921.48</h2>
+      </div>
+      <img src="./images/logo.svg" alt="logo">
+    </div>
+    <div class="card">
+      <h1>Spending - Last 7 days</h1>
+      <ul class="chart">
+        <li>
+          <span class="progress">
+            <span class="amount" ></span>
+          </span>
+          <p class="day"></p>
+        </li>
+        <li>
+          <span class="progress">
+            <span class="amount" ></span>
+          </span>
+          <p class="day"></p>
+        </li>
+        <li>
+          <span class="progress">
+            <span class="amount" ></span>
+          </span>
+          <p class="day"></p>
+        </li>
+        <li>
+          <span class="progress">
+            <span class="amount" ></span>
+          </span>
+          <p class="day"></p>
+        </li>
+        <li>
+          <span class="progress">
+            <span class="amount" ></span>
+          </span>
+          <p class="day"></p>
+        </li>
+        <li>
+          <span class="progress">
+            <span class="amount" ></span>
+          </span>
+          <p class="day"></p>
+        </li>
+        <li>
+          <span class="progress">
+            <span class="amount" ></span>
+          </span>
+          <p class="day"></p>
+        </li>
+      </ul>
+      <hr>
+      <div class="total">
+        <div class="total_month">
+          <h4> Total this month</h4>
+          <h1>$<span id="total"></span></h1>
+        </div>
+        <div class="diff">
+          <h3>+2.4%</h3>
+          <h4>from last month</h4>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>

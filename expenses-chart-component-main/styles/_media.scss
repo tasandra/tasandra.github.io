@@ -1,0 +1,27 @@
+@media only screen and (max-width: 618px) {
+    main {
+        .balance {
+            top: 5%;
+            left: 5%;
+            transform: none;
+            width: 90%;
+            height: auto;
+        }
+
+        .card {
+            transform: none;
+            top: 25%;
+            width: 90%;
+            left: 5%;
+
+            .chart {
+                gap: .5em;
+                .progress {
+                    .amount {
+                        width: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+}

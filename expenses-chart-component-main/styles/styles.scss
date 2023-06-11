@@ -1,0 +1,126 @@
+@import 'variables';
+
+@import 'https://fonts.googleapis.com/css?family=specimen:400,700|DM+Sans:400,700&display=swap';
+
+@mixin box() {
+    display: flex;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 50%;
+    min-height: auto;
+    border-radius: 20px;
+    padding: 2em;
+    gap: 2em;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $cream;
+    font-family: "DM Sans";
+
+    .balance {
+        @include box; 
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: $softRed;
+        color: $veryPaleOrange;
+        top: 15%;
+    }
+
+    .card {
+        @include box;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: $veryPaleOrange;
+        color: $darkBrown;
+        top: 60%;
+
+        .chart {
+            margin-top: 1em;
+            height: 120px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2em;
+            list-style: none;
+
+            .progress {
+                background: none;
+                height: 100px;
+                width: 100%;
+                display: block;
+                border-radius: 5px;
+                position: relative;
+                cursor: pointer;
+                text-align: end;
+                transition: 0.3s ease;
+
+                .amount {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 0;
+                    width: 3em;
+                    border-radius: 5px;
+                    background-color: $softRed;
+                    transition: 0.1s ease-in-out;
+                }
+
+                .amount::after {
+                    content: attr(data-amount);
+                    position: absolute;
+                    top: -40px;
+                    transform: translateX(-50%);
+                    left: 50%;
+                    background-color: $darkBrown;
+                    color: $veryPaleOrange;
+                    padding: .5em;
+                    border-radius: 4px;
+                    font-size: 1em;
+                    font-weight: 700;
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                }
+
+                .amount:hover {
+                    background-color: $softLightRed;
+                }
+
+                .amount:hover::after {
+                    opacity: 1;
+                }
+            }
+
+            .day {
+                text-align: center;
+                color: $mediumBrown;
+            }
+        }
+        .total {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            h1 {
+                font-size: 3em;
+            }
+            h3 {
+                font-size: 1em;
+            }
+            h4 {
+                color: $mediumBrown;
+            }
+        }
+    }
+}
+
+@import 'media';
+
