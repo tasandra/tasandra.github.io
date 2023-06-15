@@ -1,0 +1,195 @@
+@import 'variables';
+@import 'https://fonts.googleapis.com/css?family=specimen:500,700|League+Spartan:500,700&display=swap';
+
+@mixin label() {
+    font-weight: 500;
+    margin-right: .5em;
+    padding: 5px 5px .5px 5px;
+    border-radius: 40px;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $lightGrayishCyanBackground;
+    font-family: 'League Spartan';
+
+    header {
+        position: relative;
+        min-width: 100%;
+        background-color: $desaturatedDarkCyan;
+
+        #bar {
+            display: none;
+            position: absolute;
+            left: 10%;
+            bottom: -2em;
+            width: 80%;
+            margin: 0px auto;
+            height: 4em;
+            flex-wrap: wrap;
+            align-content: space-around;
+            background-color: $white;
+            justify-content: space-between;
+            box-shadow: 0px 20px 33px -14px $veryDarkGrayishCyan;
+            padding-left: 2em;
+            padding-right: 2em;
+
+            #bar-filters {
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+                height: 2em;
+                font-weight: 700;
+                color: $desaturatedDarkCyan;
+                border-radius: 2px;
+                align-items: center;
+
+                div {
+                    background-color: $lightGrayishCyanFilterTablets;
+                    padding: .5em;
+                    border-radius: 5px;
+
+                    button {
+                        border: none;
+                        cursor: pointer;
+                        background-color: $lightGrayishCyanFilterTablets;
+
+                        img {
+                            background-color: $desaturatedDarkCyan;
+                            margin-left: .5em;
+                            padding: 3px;
+
+                            &:hover {
+                                background-color: $veryDarkGrayishCyan;
+                                color: $lightGrayishCyanFilterTablets;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #reset {
+                background: transparent;
+                border: none;
+                font-weight: 700;
+                color: $desaturatedDarkCyan;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .container {
+        width: 80%;
+        margin: 0px auto;
+        margin-top: 4em;
+        margin-bottom: 2em;
+
+        #jobs {
+            .job {
+                min-height: 3em;
+                background-color: $white;
+                box-shadow: 0px 20px 33px -14px $veryDarkGrayishCyan;
+                margin-top: 1em;
+                padding: 1em;
+
+                .info {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .main-info {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+
+                        .titles {
+                            padding-left: 1em;
+
+                            .company {
+                                display: flex;
+                                flex-direction: row;
+                                gap: .5em;
+                                margin-bottom: .5em;
+
+                                span {
+                                    color: $desaturatedDarkCyan;
+                                    font-weight: 500;
+                                }
+
+                                div>span:nth-child(1) {
+                                    @include label();
+                                    background-color: $desaturatedDarkCyan;
+                                    color: $lightGrayishCyanBackground;
+                                    
+                                }
+
+                                div>span:nth-child(2) {
+                                    @include label();
+                                    background-color: $veryDarkGrayishCyan;
+                                    color: $lightGrayishCyanBackground;
+                                }
+                            }
+
+                            h3 {
+                                font-size: $fontSize;
+                                font-weight: 500;
+                                margin-bottom: .5em;
+                            }
+
+                            ul {
+                                color: $darkGrayishCyan;
+
+                                li {
+                                    display: inline;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .filters {
+                    hr {
+                        display: none;
+                    }
+                    button {
+                        border: none;
+                        border-radius: 5px;
+                        color: $desaturatedDarkCyan;
+                        background-color: $lightGrayishCyanBackground;
+                        margin-right: 1em;
+                        padding: .5em;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: $desaturatedDarkCyan;
+                            color: $lightGrayishCyanBackground;
+                        }
+                    }
+                }
+            }
+
+            .active {
+                border-left: 3px solid $desaturatedDarkCyan;
+            }
+
+            .hide {
+                display: none;
+            }
+        }
+    }
+}
+
+@import 'media';

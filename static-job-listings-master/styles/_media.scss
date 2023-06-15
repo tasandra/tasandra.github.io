@@ -1,0 +1,63 @@
+@media only screen and (max-width: 618px) {
+    #bar {
+        height: 8em !important;
+        padding-left: .5em !important;
+        padding-top: .5em;
+        flex-wrap: nowrap !important;
+
+        #bar-filters {
+            flex-direction: column;
+            flex-wrap: wrap;
+            #reset {
+                float: right;
+            }
+        }
+    }
+
+    .container {
+        #jobs {
+            display: flex;
+            flex-direction: column;
+            gap: 3em;
+
+            .job {
+                flex-direction: column;
+                gap: 1em;
+
+                .info {
+                    flex-direction: column !important;
+                    align-items: center;
+                    gap: 3em;
+
+                    .main-info {
+                        position: relative;
+                    }
+
+                    img {
+                        position: absolute;
+                        width: 50px;
+                        top: -40px;
+                    }
+
+                    .titles {
+                        margin-top: 2em;
+                    }
+                }
+
+                .filters {
+                    align-items: center;
+
+                    hr {
+                        display: block !important;
+                        margin-bottom: 2em;
+                    }
+
+                    button {
+                        margin-right: 2em;
+                        margin-bottom: 1em;
+                    }
+                }
+            }
+        }
+    }
+}

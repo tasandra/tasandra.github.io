@@ -1,0 +1,215 @@
+@import 'https://fonts.googleapis.com/css?family=specimen:500,700|League+Spartan:500,700&display=swap';
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(180, 52%, 96%);
+  font-family: "League Spartan";
+}
+body header {
+  position: relative;
+  min-width: 100%;
+  background-color: hsl(180, 29%, 50%);
+}
+body header #bar {
+  display: none;
+  position: absolute;
+  left: 10%;
+  bottom: -2em;
+  width: 80%;
+  margin: 0px auto;
+  height: 4em;
+  flex-wrap: wrap;
+  align-content: space-around;
+  background-color: hsl(180, 20%, 99%);
+  justify-content: space-between;
+  box-shadow: 0px 20px 33px -14px hsl(180, 14%, 20%);
+  padding-left: 2em;
+  padding-right: 2em;
+}
+body header #bar #bar-filters {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  height: 2em;
+  font-weight: 700;
+  color: hsl(180, 29%, 50%);
+  border-radius: 2px;
+  align-items: center;
+}
+body header #bar #bar-filters div {
+  background-color: hsl(180, 31%, 95%);
+  padding: 0.5em;
+  border-radius: 5px;
+}
+body header #bar #bar-filters div button {
+  border: none;
+  cursor: pointer;
+  background-color: hsl(180, 31%, 95%);
+}
+body header #bar #bar-filters div button img {
+  background-color: hsl(180, 29%, 50%);
+  margin-left: 0.5em;
+  padding: 3px;
+}
+body header #bar #bar-filters div button img:hover {
+  background-color: hsl(180, 14%, 20%);
+  color: hsl(180, 31%, 95%);
+}
+body header #bar #reset {
+  background: transparent;
+  border: none;
+  font-weight: 700;
+  color: hsl(180, 29%, 50%);
+  cursor: pointer;
+}
+body header #bar #reset:hover {
+  text-decoration: underline;
+}
+body .container {
+  width: 80%;
+  margin: 0px auto;
+  margin-top: 4em;
+  margin-bottom: 2em;
+}
+body .container #jobs .job {
+  min-height: 3em;
+  background-color: hsl(180, 20%, 99%);
+  box-shadow: 0px 20px 33px -14px hsl(180, 14%, 20%);
+  margin-top: 1em;
+  padding: 1em;
+}
+body .container #jobs .job .info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container #jobs .job .info .main-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+body .container #jobs .job .info .main-info .titles {
+  padding-left: 1em;
+}
+body .container #jobs .job .info .main-info .titles .company {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+}
+body .container #jobs .job .info .main-info .titles .company span {
+  color: hsl(180, 29%, 50%);
+  font-weight: 500;
+}
+body .container #jobs .job .info .main-info .titles .company div > span:nth-child(1) {
+  font-weight: 500;
+  margin-right: 0.5em;
+  padding: 5px 5px 0.5px 5px;
+  border-radius: 40px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  background-color: hsl(180, 29%, 50%);
+  color: hsl(180, 52%, 96%);
+}
+body .container #jobs .job .info .main-info .titles .company div > span:nth-child(2) {
+  font-weight: 500;
+  margin-right: 0.5em;
+  padding: 5px 5px 0.5px 5px;
+  border-radius: 40px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  background-color: hsl(180, 14%, 20%);
+  color: hsl(180, 52%, 96%);
+}
+body .container #jobs .job .info .main-info .titles h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+body .container #jobs .job .info .main-info .titles ul {
+  color: hsl(180, 8%, 52%);
+}
+body .container #jobs .job .info .main-info .titles ul li {
+  display: inline;
+}
+body .container #jobs .job .filters hr {
+  display: none;
+}
+body .container #jobs .job .filters button {
+  border: none;
+  border-radius: 5px;
+  color: hsl(180, 29%, 50%);
+  background-color: hsl(180, 52%, 96%);
+  margin-right: 1em;
+  padding: 0.5em;
+  cursor: pointer;
+}
+body .container #jobs .job .filters button:hover {
+  background-color: hsl(180, 29%, 50%);
+  color: hsl(180, 52%, 96%);
+}
+body .container #jobs .active {
+  border-left: 3px solid hsl(180, 29%, 50%);
+}
+body .container #jobs .hide {
+  display: none;
+}
+
+@media only screen and (max-width: 618px) {
+  #bar {
+    height: 8em !important;
+    padding-left: 0.5em !important;
+    padding-top: 0.5em;
+    flex-wrap: nowrap !important;
+  }
+  #bar #bar-filters {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  #bar #bar-filters #reset {
+    float: right;
+  }
+  .container #jobs {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+  }
+  .container #jobs .job {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .container #jobs .job .info {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 3em;
+  }
+  .container #jobs .job .info .main-info {
+    position: relative;
+  }
+  .container #jobs .job .info img {
+    position: absolute;
+    width: 50px;
+    top: -40px;
+  }
+  .container #jobs .job .info .titles {
+    margin-top: 2em;
+  }
+  .container #jobs .job .filters {
+    align-items: center;
+  }
+  .container #jobs .job .filters hr {
+    display: block !important;
+    margin-bottom: 2em;
+  }
+  .container #jobs .job .filters button {
+    margin-right: 2em;
+    margin-bottom: 1em;
+  }
+}/*# sourceMappingURL=style.css.map */
