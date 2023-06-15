@@ -157,7 +157,7 @@ function renderFilterBar(filters) {
 
     const buttonElement = document.createElement("button");
     const imageElement = document.createElement("img");
-    imageElement.src = "../images/icon-remove.svg";
+    imageElement.src = "images/icon-remove.svg";
     imageElement.alt = "remove";
     buttonElement.appendChild(imageElement);
     barFilter.appendChild(buttonElement);
