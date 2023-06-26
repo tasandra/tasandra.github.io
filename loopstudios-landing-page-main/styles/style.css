@@ -1,0 +1,494 @@
+@import 'https://fonts.googleapis.com/css?family=specimen:200,400|Alata:200,400,200&display=swap';
+@import 'https://fonts.googleapis.com/css?family=specimen:300|Josefin+Sans:300&display=swap';
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body .hero {
+  background-image: url(../images/desktop/image-hero.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+body .hero img.menu-open,
+body .hero img.menu-close {
+  display: none;
+}
+body .hero .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 40px;
+}
+body .hero .wrapper .logo img {
+  max-height: 30px;
+  display: block;
+}
+body .hero .wrapper nav {
+  min-height: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  gap: 3rem;
+}
+body .hero .wrapper nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 2em;
+}
+body .hero .wrapper nav ul a {
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+}
+body .hero .wrapper nav ul a:hover:after {
+  content: "";
+  display: block;
+  width: 20px;
+  padding-top: 10px;
+  margin-left: 30%;
+  border-bottom: 2px solid hsl(0, 0%, 100%);
+}
+body .hero header {
+  max-width: 40%;
+  border: 1px solid hsl(0, 0%, 100%);
+  margin-top: 15%;
+  margin-left: 10%;
+  animation: switch 5s linear;
+}
+body .hero header h1 {
+  font-family: "Josefin Sans";
+  font-size: 3em;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  padding: 1em;
+}
+body .intro {
+  display: flex;
+  width: 80%;
+  margin: 4em auto;
+  flex-direction: row;
+  align-items: flex-end;
+}
+body .intro img {
+  position: relative;
+}
+body .intro .info {
+  background-color: hsl(0, 0%, 100%);
+  position: absolute;
+  left: 50%;
+  margin-top: 10%;
+  padding-right: 10%;
+}
+body .intro .info h1 {
+  font-family: "Josefin Sans";
+  font-size: 3em;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 0%);
+  padding-left: 40px;
+  padding-top: 1em;
+}
+body .intro .info p {
+  font-family: "Alata";
+  font-size: 1em;
+  font-weight: 200;
+  padding-left: 40px;
+  padding-top: 1em;
+  color: hsl(0, 0%, 41%);
+}
+body .creations {
+  margin: 10%;
+}
+body .creations .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Josefin Sans";
+  font-size: 1em;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 0%);
+}
+body .creations .header .button {
+  border: 1px solid hsl(0, 0%, 0%);
+  padding: 10px 20px;
+  font-family: "Josefin Sans";
+  font-size: 1em;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 0%);
+}
+body .creations .header .button:hover {
+  background-color: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+}
+body .creations .cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  justify-content: space-between;
+}
+body .creations .cards .card:nth-child(1) {
+  background-image: url("../images/desktop/image-deep-earth.jpg");
+  width: 22%;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2em;
+  opacity: 1;
+}
+body .creations .cards .card:nth-child(1):hover {
+  opacity: 0.5;
+}
+body .creations .cards .card:nth-child(2) {
+  background-image: url("../images/desktop/image-night-arcade.jpg");
+  width: 22%;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2em;
+  opacity: 1;
+}
+body .creations .cards .card:nth-child(2):hover {
+  opacity: 0.5;
+}
+body .creations .cards .card:nth-child(3) {
+  background-image: url("../images/desktop/image-soccer-team.jpg");
+  width: 22%;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2em;
+  opacity: 1;
+}
+body .creations .cards .card:nth-child(3):hover {
+  opacity: 0.5;
+}
+body .creations .cards .card:nth-child(4) {
+  background-image: url("../images/desktop/image-grid.jpg");
+  width: 22%;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2em;
+  opacity: 1;
+}
+body .creations .cards .card:nth-child(4):hover {
+  opacity: 0.5;
+}
+body .creations .cards .card:nth-child(5) {
+  background-image: url("../images/desktop/image-from-above.jpg");
+  width: 22%;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2em;
+  opacity: 1;
+}
+body .creations .cards .card:nth-child(5):hover {
+  opacity: 0.5;
+}
+body .creations .cards .card:nth-child(6) {
+  background-image: url("../images/desktop/image-pocket-borealis.jpg");
+  width: 22%;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2em;
+  opacity: 1;
+}
+body .creations .cards .card:nth-child(6):hover {
+  opacity: 0.5;
+}
+body .creations .cards .card:nth-child(7) {
+  background-image: url("../images/desktop/image-curiosity.jpg");
+  width: 22%;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2em;
+  opacity: 1;
+}
+body .creations .cards .card:nth-child(7):hover {
+  opacity: 0.5;
+}
+body .creations .cards .card:nth-child(8) {
+  background-image: url("../images/desktop/image-fisheye.jpg");
+  width: 22%;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2em;
+  opacity: 1;
+}
+body .creations .cards .card:nth-child(8):hover {
+  opacity: 0.5;
+}
+body .creations .cards h2 {
+  font-family: "Josefin Sans";
+  font-size: 1.5em;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  margin-left: 10%;
+  margin-right: 40%;
+  margin-top: 130%;
+}
+body footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  background-color: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+}
+body footer .navigation {
+  margin-left: 10%;
+}
+body footer .navigation ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 2em;
+  margin-top: 0.5em;
+}
+body footer .navigation ul a {
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+}
+body footer .navigation ul a:hover:after {
+  content: "";
+  display: block;
+  width: 20px;
+  padding-top: 10px;
+  margin-left: 30%;
+  border-bottom: 2px solid hsl(0, 0%, 100%);
+}
+body footer .contact {
+  margin-right: 10%;
+  text-align: right;
+}
+body footer .contact .icons {
+  margin-bottom: 0.5em;
+}
+body footer .contact .icons img {
+  padding-left: 0.5em;
+}
+body footer .contact span {
+  color: hsl(0, 0%, 41%);
+}
+
+@keyframes switch {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(12);
+  }
+  30% {
+    opacity: 1;
+    filter: blur(10px);
+    transform: scale(6);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(5px);
+    transform: scale(0.9);
+  }
+  80% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(0.1);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 618px) {
+  body.open {
+    overflow: hidden;
+  }
+  body.open .hero .wrapper nav {
+    display: flex;
+  }
+  body.open .hero .wrapper img.menu-open {
+    display: none;
+  }
+  body.open .hero .wrapper img.menu-close {
+    display: block;
+  }
+  body .hero {
+    background-image: url(../images/mobile/image-hero.jpg);
+  }
+  body .hero .wrapper img.menu-open {
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+  body .hero .wrapper img.menu-close {
+    display: none;
+    z-index: 3;
+  }
+  body .hero .wrapper nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100vw;
+    padding: 2rem;
+    background: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
+    padding-top: 8rem;
+    display: none;
+    z-index: 2;
+  }
+  body .hero .wrapper nav ul {
+    flex-direction: column;
+  }
+  body .hero header {
+    max-width: 90%;
+    margin-top: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  body .hero header h1 {
+    font-size: 2em;
+  }
+  body .intro {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  body .intro img {
+    position: relative;
+    width: 90%;
+    margin-left: 5%;
+  }
+  body .intro .info {
+    position: relative;
+    left: 0;
+    text-align: center;
+    padding-right: 40px;
+    padding-right: 40px;
+  }
+  body .intro .info h1 {
+    font-family: "Josefin Sans";
+    font-size: 2em;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: hsl(0, 0%, 0%);
+    padding-top: 1em;
+  }
+  body .intro .info p {
+    line-height: 1.5;
+  }
+  body .creations {
+    margin: 10%;
+    position: relative;
+  }
+  body .creations .header {
+    flex-direction: column;
+  }
+  body .creations .header .button {
+    position: absolute;
+    bottom: -1.5em;
+  }
+  body .creations .header .button:hover {
+    background-color: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+  }
+  body .creations .cards {
+    flex-direction: column;
+  }
+  body .creations .cards .card:nth-child(1) {
+    background-image: url("../images/mobile/image-deep-earth.jpg");
+    width: 100%;
+    height: 100px;
+  }
+  body .creations .cards .card:nth-child(2) {
+    background-image: url("../images/mobile/image-night-arcade.jpg");
+    width: 100%;
+    height: 100px;
+  }
+  body .creations .cards .card:nth-child(3) {
+    background-image: url("../images/mobile/image-soccer-team.jpg");
+    width: 100%;
+    height: 100px;
+  }
+  body .creations .cards .card:nth-child(4) {
+    background-image: url("../images/mobile/image-grid.jpg");
+    width: 100%;
+    height: 100px;
+  }
+  body .creations .cards .card:nth-child(5) {
+    background-image: url("../images/mobile/image-from-above.jpg");
+    width: 100%;
+    height: 100px;
+  }
+  body .creations .cards .card:nth-child(6) {
+    background-image: url("../images/mobile/image-pocket-borealis.jpg");
+    width: 100%;
+    height: 100px;
+  }
+  body .creations .cards .card:nth-child(7) {
+    background-image: url("../images/mobile/image-curiosity.jpg");
+    width: 100%;
+    height: 100px;
+  }
+  body .creations .cards .card:nth-child(8) {
+    background-image: url("../images/mobile/image-fisheye.jpg");
+    width: 100%;
+    height: 100px;
+  }
+  body .creations .cards h2 {
+    margin-right: 50%;
+    margin-top: 50px;
+  }
+  body footer {
+    flex-direction: column;
+    height: auto;
+    margin-top: 3em;
+    padding-bottom: 1em;
+  }
+  body footer img {
+    padding-top: 3em;
+  }
+  body footer .navigation {
+    margin-left: 0%;
+  }
+  body footer .navigation ul {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
+  }
+  body footer .contact {
+    margin-right: 0%;
+    text-align: center;
+  }
+  body footer .contact span {
+    color: hsl(0, 0%, 41%);
+  }
+}/*# sourceMappingURL=style.css.map */
