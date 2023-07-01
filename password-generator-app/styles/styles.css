@@ -1,0 +1,250 @@
+/* Colors */
+/* Fonts */
+@font-face {
+  font-family: "Jet Brains Mono";
+  src: url("../assets/fonts/JetBrainsMono-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Jet Brains Mono";
+  src: url("../assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf");
+  font-style: italic;
+}
+@font-face {
+  font-family: "Jet Brains Mono";
+  src: url("../assets/fonts/static/JetBrainsMono-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Jet Brains Mono";
+  src: url("../assets/fonts/static/JetBrainsMono-BoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #18171f;
+  font-family: "Jet Brains Mono", sans-serif;
+}
+
+.container {
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 50%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  gap: 2em;
+}
+.container .password {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #24232c;
+  width: 100%;
+  height: 5rem;
+}
+.container .password span {
+  color: #e6e5ea;
+  font-size: 2rem;
+  font-weight: 700;
+  padding-left: 2rem;
+  opacity: 0.25;
+}
+.container .password #copy {
+  padding-right: 2rem;
+  cursor: pointer;
+  opacity: 1;
+}
+.container .password #copy #copy-text {
+  color: #a4ffaf;
+  font-weight: 400;
+  opacity: 0;
+}
+.container .password #copy:hover, .container .password #copy:hover path {
+  fill: #e6e5ea;
+}
+.container .options {
+  display: flex;
+  flex-direction: column;
+  background: #24232c;
+  width: 100%;
+  height: auto;
+  gap: 2;
+  padding: 1.5rem 2rem;
+}
+.container .options .slidecontainer p {
+  display: inline-flex;
+  width: 100%;
+  padding: 0rem 0rem 0.0625rem 0rem;
+  justify-content: space-between;
+  align-items: center;
+  color: #e6e5ea;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.container .options .slidecontainer p span {
+  color: #a4ffaf;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.container .options .slidecontainer #range {
+  -webkit-appearance: none;
+  background: #18171f;
+  height: 7px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+}
+.container .options .slidecontainer .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e6e5ea;
+  cursor: pointer;
+}
+.container .options .slidecontainer .slider::-webkit-slider-thumb:hover {
+  background: #18171f;
+  border: 1px solid #a4ffaf;
+}
+.container .options .select {
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;
+}
+.container .options .select form {
+  width: 100%;
+}
+.container .options .select form .checkboxes .checkbox {
+  display: flex;
+  height: 1.4375rem;
+  padding: 0rem 0.0625rem 0rem 0rem;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  color: #e6e5ea;
+  position: relative;
+}
+.container .options .select form .checkboxes .checkbox input[type=checkbox] {
+  width: 1.25rem;
+  height: 1.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid #e6e5ea;
+  outline: none;
+  transition-duration: 0.3s;
+  background-color: #24232c;
+  cursor: pointer;
+}
+.container .options .select form .checkboxes .checkbox input[type=checkbox]:checked {
+  border: 1px solid #817d92;
+  background-color: #a4ffaf;
+}
+.container .options .select form .checkboxes .checkbox input[type=checkbox]:checked::before {
+  content: url(../assets/images/icon-check.svg);
+  display: block;
+  text-align: center;
+  color: #18171f;
+  position: absolute;
+  left: 0.2rem;
+  top: 0.2rem;
+}
+.container .options .select form .strength {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+  height: 4.5rem;
+  background-color: #18171f;
+}
+.container .options .select form .strength span {
+  color: #817d92;
+  font-size: 1.125rem;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.container .options .select form .strength .bars {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+.container .options .select form .strength .bars #bar-text {
+  color: #e6e5ea;
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.container .options .select form .strength .bars ul li {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 0.625rem;
+  height: 1.75rem;
+  border: 1px solid #e6e5ea;
+}
+.container .options .select form .generate {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  height: 4.0625rem;
+  background-color: #a4ffaf;
+  text-align: center;
+  cursor: pointer;
+}
+.container .options .select form .generate input[type=submit] {
+  border: none;
+  transition-duration: 0.3s;
+  background-color: #a4ffaf;
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #24232c;
+}
+.container .options .select form .generate:hover {
+  background-color: #24232c;
+  border: 1px solid #a4ffaf;
+  color: #a4ffaf;
+}
+.container .options .select form .generate:hover input[type=submit] {
+  background-color: #24232c;
+  color: #a4ffaf;
+}
+.container .options .select form .generate:hover #arrow path {
+  fill: #a4ffaf;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .container {
+    width: 90%;
+  }
+  .password span {
+    font-size: 1.2rem !important;
+  }
+  .select form .checkboxes .checkbox {
+    font-size: 0.8rem !important;
+  }
+}/*# sourceMappingURL=styles.css.map */
