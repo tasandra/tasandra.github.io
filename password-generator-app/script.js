@@ -8,6 +8,8 @@ const password = document.querySelector("#password");
 const copyText  = document.querySelector("#copy-text ");
 output.innerHTML = slider.value;
 
+
+// handle slider
 slider.oninput = function () {
   output.innerHTML = this.value;
   var value = ((this.value - this.min) / (this.max - this.min)) * 100;
@@ -19,6 +21,7 @@ slider.oninput = function () {
     "%, #18171f 100%)";
 };
 
+// array to handle checkboxes
 let selected = [];
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("click", function () {
@@ -42,40 +45,7 @@ checkboxes.forEach((checkbox) => {
   });
 });
 
-function generatePassword(length, charTypes) {
-  console.log(length);
-  console.log(charTypes);
-  // Define the character sets for different types of characters
-  const charSets = {
-    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    lowercase: "abcdefghijklmnopqrstuvwxyz",
-    numbers: "0123456789",
-    symbols: "!@#$%^&*()_+~`|}{[]:;?><,./-=",
-  };
-
-  // Create an array to hold the selected character sets
-  const selectedCharSets = [];
-
-  // Iterate over the charTypes array and select the corresponding character sets
-  for (const charType of charTypes) {
-    if (charSets[charType]) {
-      selectedCharSets.push(charSets[charType]);
-    }
-  }
-
-  // Generate the password by randomly selecting characters from the selected character sets
-  let password = "";
-  for (let i = 0; i < length; i++) {
-    const randomCharSet =
-      selectedCharSets[Math.floor(Math.random() * selectedCharSets.length)];
-    const randomChar =
-      randomCharSet[Math.floor(Math.random() * randomCharSet.length)];
-    password += randomChar;
-  }
-
-  return password;
-}
-
+// show strength base on checked options
 function showStrength(selected, checked) {
   var listItem = document.querySelectorAll("ul > li");
 
@@ -109,16 +79,46 @@ function showStrength(selected, checked) {
   }
 }
 
+// event on click on Generate button
 generateButton.addEventListener("click", function () {
   var range = slider.value;
-  console.log(range);
-  console.log(selected);
   var newPassword = generatePassword(range, selected);
-  console.log(newPassword);
   password.innerHTML = newPassword;
   password.style.opacity = '1';
   copyText.style.opacity = '0';
 });
+
+// generate password
+function generatePassword(length, charTypes) {
+  const charSets = {
+    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    lowercase: "abcdefghijklmnopqrstuvwxyz",
+    numbers: "0123456789",
+    symbols: "!@#$%^&*()_+~`|}{[]:;?><,./-=",
+  };
+
+  // Create an array to hold the selected character sets
+  const selectedCharSets = [];
+
+  // Iterate over the charTypes array and select the corresponding character sets
+  for (const charType of charTypes) {
+    if (charSets[charType]) {
+      selectedCharSets.push(charSets[charType]);
+    }
+  }
+
+  // Generate the password by randomly selecting characters from the selected character sets
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomCharSet =
+      selectedCharSets[Math.floor(Math.random() * selectedCharSets.length)];
+    const randomChar =
+      randomCharSet[Math.floor(Math.random() * randomCharSet.length)];
+    password += randomChar;
+  }
+
+  return password;
+}
 
 const copyContent = async () => {
   try {
