@@ -2,6 +2,6 @@
 
 ### Links
 
-- Live Site URL: [homework](https://tasandra.github.io//)
+- Live Site URL: [homework](https://tasandra.github.io/CIS-114-JavaScript/)
 
 
