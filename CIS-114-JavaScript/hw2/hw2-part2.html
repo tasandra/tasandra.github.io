@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CIS-114 JavaScript/Ajax Programming Homeworks">
+    <title>Homework 2 - Part 2</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        function process() {
+            var number1, number2, number2, sum, average, product, min, max;
+            var array = [];
+            number1 = document.getElementById("num1").value;
+            number2 = document.getElementById("num2").value;
+            number3 = document.getElementById("num3").value;
+            array.push(parseInt(number1));
+            array.push(parseInt(number2));
+            array.push(parseInt(number3));
+       
+            sum = array[0] + array[1] + array[2];
+            average = sum / 3;
+            product = array[0] * array[1] * array[2];
+            min = Math.min(...array);
+            max = Math.max(...array);
+            
+            document.getElementById("result").value = 
+            (" The sum is: " + sum + 
+            "\n The average is: " + average + 
+            "\n The product is: " + product + 
+            "\n The min is: " + min +
+            "\n The max is: " + max);
+        }
+    </script>
+
+</head>
+
+<body>
+    <section>
+        <h3>Calculate the sum, the average, the product, the min and max</h3>
+        <form name="myform">
+            <label for="num1">First Number:</label> <input type="text" id="num1" id="num1" size="10"><br><br>
+            <label for="num2">Second Number:</label> <input type="text" id="num2" id="num2" size="10"><br><br>
+            <label for="num3">Third Number:</label> <input type="text" id="num3" id="num3" size="10"><br><br>
+            <label for="result">Result  </label><textarea rows="6" cols="40" id="result" readonly=""></textarea><br><br>
+            <input type="button" onclick="process()" value="SUBMIT">
+            <input type="reset" value="RESET">
+        </form>
+    </section>
+    <div class="button">
+        <a href="/hw2.html">Back to Homework 2 page</a>
+        <a href="hw2-part1.html">Go to Part 1</a>
+        <a href="hw2-extracredit.html">Go to Extra Credit</a>
+    </div>
+</body>
+
+</html>

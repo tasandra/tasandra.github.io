@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CIS-114 JavaScript/Ajax Programming Homeworks">
+    <title>Homework 2 - Extra Credit</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        const rates = {
+            "euro": 0.84,
+            "canadianDollar": 1.23,
+            "hongKongDollar": 7.76,
+            "japaneseYen": 110.80,
+            "mexicanPeso": 19.82
+        };
+
+        function getValues() {
+            const input = document.getElementById("usdAmount").value;
+
+            if (!isNaN(parseFloat(input)) && typeof parseFloat(input) === 'number') {
+                const convertedEuroValue = (parseFloat(input) * rates["euro"]).toFixed(2);
+                const convertedCanadianDollarValue = (parseFloat(input) * rates["canadianDollar"]).toFixed(2);
+                const convertedHongKongDollarValue = (parseFloat(input) * rates["hongKongDollar"]).toFixed(2);
+                const convertedJapaneseYenValue = (parseFloat(input) * rates["japaneseYen"]).toFixed(2);
+                const convertedMexicanPesoValue = (parseFloat(input) * rates["mexicanPeso"]).toFixed(2);
+    
+                document.getElementById("euro-value").value = convertedEuroValue;
+                document.getElementById("canadian-dollar-value").value = convertedCanadianDollarValue;
+                document.getElementById("hong-kong-dollar-value").value = convertedHongKongDollarValue;
+                document.getElementById("japanese-yen-value").value = convertedJapaneseYenValue;
+                document.getElementById("mexican-peso-value").value = convertedMexicanPesoValue;
+            } else {
+                document.getElementById("error").innerHTML = "Please insert valid number!";
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <section>
+        <h3>Calculate the currency</h3>
+        <table>
+            <tr>
+                <th>Currency</th>
+                <th>Rate</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Euro</td>
+                <td> 0.84</td>
+                <td><input type="text" id="euro-value" readonly></td>
+            </tr>
+            <tr>
+                <td>Canadian Dollar</td>
+                <td>1.23</td>
+                <td><input type="text" id="canadian-dollar-value" readonly></td>
+            </tr>
+            <tr>
+                <td>Hong Kong Dollar</td>
+                <td>7.76</td>
+                <td><input type="text" id="hong-kong-dollar-value" readonly></td>
+            </tr>
+            <tr>
+                <td>Japanese Yen</td>
+                <td>110.80</td>
+                <td><input type="text" id="japanese-yen-value" readonly></td>
+            </tr>
+            <tr>
+                <td>Mexican Peso</td>
+                <td>19.82</td>
+                <td><input type="text" id="mexican-peso-value" readonly></td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td>Enter Amount of U.S. Dollars</td>
+                    <td></td>
+                    <td><input type="text" id="usdAmount"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <button onclick="getValues()">Get Result</button>
+        <div class="error">
+            <span id="error"></span>
+        </div>
+
+    </section>
+    <div class="button">
+        <a href="/hw2.html">Back to Homework 2 page</a>
+        <a href="hw2-part1.html">Go to Part 1</a>
+        <a href="hw2-part2.html">Go to Part 2</a>
+    </div>
+</body>
+
+</html>

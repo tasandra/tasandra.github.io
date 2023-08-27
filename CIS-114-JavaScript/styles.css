@@ -14,39 +14,102 @@ body {
 }
 
 h1 {
-    text-align: center;
-    padding-top: 1em;
-    color: hsl(0, 0%, 7%);
+  text-align: center;
+  padding-top: 1em;
+  margin-bottom: 2em;
+  color: hsl(0, 0%, 7%);
 }
+
 h2 {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    color: hsl(0, 1%, 25%);;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: hsl(0, 1%, 25%);
+  ;
+}
+
+h3 span {
+  font-style: italic;
+  padding-left: 3em;
+  font-weight: 200;
+  color: hsl(180, 42%, 48%);
 }
 
 .homeworks {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
-.homework {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80%;
-    height: 3em;
-    background-color: white;
-    text-indent: 1em;
-    align-items: center;
-}
-.homework a {
-    display: inline-block;
-    padding: .5em 1em;
-    border: none;
-    border-radius: 5px;
-    color: hsl(180, 29%, 50%);
-    background-color: hsl(180, 52%, 96%);
-    margin-right: 1em;
-    cursor: pointer;
-  }
 
+.homework {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 3em;
+  background-color: white;
+  text-indent: 1em;
+  align-items: center;
+}
+
+.homework a {
+  display: inline-block;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 5px;
+  color: hsl(180, 29%, 50%);
+  background-color: hsl(180, 52%, 96%);
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button a {
+  display: inline-block;
+  margin-top: 2em;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 5px;
+  color: hsl(180, 11%, 98%);
+  background-color: hsl(180, 42%, 48%);
+  margin-right: 1em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5em;
+  background-color: white;
+  min-width: 60%;
+  min-height: auto;
+  border-radius: 20px;
+  padding: 2em;
+  gap: 2em;
+}
+
+th {
+  text-align: left;
+  margin-bottom: 2em;
+}
+tfoot tr td {
+  padding-top: 2em;
+  color: hsl(180, 29%, 50%);
+}
+input:focus {
+  color: hsl(180, 29%, 50%);
+  background-color: hsl(180, 52%, 96%);
+}
+
+button {
+  width: 10em;
+}
+
+.error {
+  color: red;
+}
