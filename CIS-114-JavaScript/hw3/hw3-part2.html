@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 3 - Part 2</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        function calculateEarnings() {
+            // Get quantity sold for each item
+            const item1 = parseFloat(document.getElementById("item1").value);
+            const item2 = parseFloat(document.getElementById("item2").value);
+            const item3 = parseFloat(document.getElementById("item3").value);
+            const item4 = parseFloat(document.getElementById("item4").value);
+
+            if (isNaN(+item1) || isNaN(+item2) || isNaN(+item3) || isNaN(+item4) ||
+                item1 < 0 || item2 < 0 || item3 < 0 || item4 < 0 ) {
+                resultArea.innerHTML = `<span class="error">Please enter valid numbers for all items</span>`;
+            } else {
+                // reset error message
+                resultArea.innerHTML = "";
+                // Calculate total sales
+                const totalSales = (item1 * 20.99) + (item2 * 12.75) + (item3 * 9.95) + (item4 * 35.89);
+
+                // Calculate earnings
+                const earnings = 250 + (0.09 * totalSales);
+
+                // Display total sales and earnings
+                document.getElementById("item1Qty").value = item1;
+                document.getElementById("item2Qty").value = item2;
+                document.getElementById("item3Qty").value = item3;
+                document.getElementById("item4Qty").value = item4;
+
+                document.getElementById("item1Total").value = (item1 * 20.99).toFixed(2);
+                document.getElementById("item2Total").value = (item2 * 12.75).toFixed(2);
+                document.getElementById("item3Total").value = (item3 * 9.95).toFixed(2);
+                document.getElementById("item4Total").value = (item4 * 35.89).toFixed(2);
+
+                document.getElementById("totalAmount").value = totalSales.toFixed(2);
+                document.getElementById("totalEarnings").value = earnings.toFixed(2);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <section>
+        <h3>Homework 3 - Part 2</h3>
+        <form id="salesForm">
+            <label for="selllerName">Seller's Name:</label>
+            <input type="text" id="salespersonName" name="salespersonName"><br><br>
+
+            <h4>For each item type the quantity sold by the seller</h4><br>
+
+            <label for="item1">Item 1:</label>
+            <input type="number" id="item1" name="item1"><br><br>
+
+            <label for="item2">Item 2:</label>
+            <input type="number" id="item2" name="item2"><br><br>
+
+            <label for="item3">Item 3:</label>
+            <input type="number" id="item3" name="item3"><br><br>
+
+            <label for="item4">Item 4:</label>
+            <input type="number" id="item4" name="item4"><br><br>
+
+            <div id="resultArea"></div>
+
+            <button type="button" onclick="calculateEarnings()">Submit</button>
+            <button type="button" onclick="window.location.reload();">Clear Form</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>Item#</th>
+                <th>Price</th>
+                <th>Qty Sold</th>
+                <th>Total $</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>$20.99</td>
+                <td><input type="number" id="item1Qty" readonly></td>
+                <td><input type="text" id="item1Total" readonly></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>$12.75</td>
+                <td><input type="number" id="item2Qty" readonly></td>
+                <td><input type="text" id="item2Total" readonly></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>$9.95</td>
+                <td><input type="number" id="item3Qty" readonly></td>
+                <td><input type="text" id="item3Total" readonly></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>$35.89</td>
+                <td><input type="number" id="item4Qty" readonly></td>
+                <td><input type="text" id="item4Total" readonly></td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total Amount Sold:</td>
+                    <td><input type="text" id="totalAmount" readonly></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total Weekly Earnings:</td>
+                    <td><input type="text" id="totalEarnings" readonly></td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </section>
+    <div class="button">
+        <a href="../hw3.html">Back to Homework 3 page</a>
+        <a href="hw3-part1.html">Go to Part 1</a>
+    </div>
+</body>
+
+</html>

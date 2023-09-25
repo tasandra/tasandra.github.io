@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 3 - Part 1</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        function getAvg() {
+            const resultArea = document.getElementById("resultArea");
+    
+            const hwAvg = parseInt(document.getElementById("hwAvg").value);
+            const midExam = parseInt(document.getElementById("midExam").value);
+            const finalExam = parseInt(document.getElementById("finalExam").value);
+            const participation = parseInt(document.getElementById("participation").value);
+
+            if (isNaN(hwAvg) || isNaN(midExam) || isNaN(finalExam) || isNaN(participation) ||
+                hwAvg < 0 || midExam < 0 || finalExam < 0 || participation < 0 ||
+                hwAvg > 100 || midExam > 100 || finalExam > 100 || participation > 100) {
+                resultArea.innerHTML = `<span class="error">Please enter valid grades between 0 and 100</span>`;
+            } else {
+                let finalAverage = Math.round(0.5 * +hwAvg + 0.2 * +midExam + 0.2 * +finalExam + 0.1 * +participation);
+                let letterGrade = calculateLetterGrade(finalAverage);
+                resultArea.innerHTML = `Final Average: ${finalAverage}<br>`;
+                resultArea.innerHTML += `Grade: ${letterGrade}<br>`;
+                if (letterGrade == "F" || letterGrade == "D") {
+                    resultArea.innerHTML += `<span class="error">Student must retake the course</span>`;
+                }
+            }
+        }
+
+        function calculateLetterGrade(finalAverage) {
+            let letterGrade;
+            switch (true) {
+                case finalAverage >= 90:
+                    letterGrade = "A";
+                    break;
+                case finalAverage >= 80:
+                    letterGrade = "B";
+                    break;
+                case finalAverage >= 70:
+                    letterGrade = "C";
+                    break;
+                case finalAverage >= 60:
+                    letterGrade = "D";
+                    break;
+                default:
+                    letterGrade = "F";
+            }     
+            return letterGrade;
+        }        
+    </script>
+</head>
+
+<body>
+    <section>
+        <h3>Student Grades</h3>
+
+        <form id="gradeForm">
+            <label for="hwAvg">Homework Average:</label>
+            <input type="number" id="hwAvg" min="0" max="100" name="hwAvg" required>
+            <br><br>
+
+            <label for="midExam">Mid-Term Exam Score:</label>
+            <input type="number" id="midExam" min="0" max="100" name="midExam" required>
+            <br><br>
+
+            <label for="finalExam">Final Exam Score:</label>
+            <input type="number" id="finalExam" min="0" max="100" name="finalExam" required>
+            <br><br>
+
+            <label for="participation">Participation:</label>
+            <input type="number" id="participation" min="0" max="100" name="participation" required>
+            <br><br>
+
+            <button type="button" id="calculateButton" onclick="getAvg()">Calculate</button>
+            <button type="button" id="clearButton" onclick="window.location.reload();">Clear</button>
+        </form>
+
+        <div id="resultArea"></div>
+    </section>
+    <div class="button">
+        <a href="../hw3.html">Back to Homework 3 page</a>
+        <a href="hw3-part2.html">Go to Part 2</a>
+    </div>
+</body>
+
+</html>
