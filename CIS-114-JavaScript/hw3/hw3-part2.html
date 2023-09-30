@@ -18,6 +18,19 @@
             if (isNaN(+item1) || isNaN(+item2) || isNaN(+item3) || isNaN(+item4) ||
                 item1 < 0 || item2 < 0 || item3 < 0 || item4 < 0 ) {
                 resultArea.innerHTML = `<span class="error">Please enter valid numbers for all items</span>`;
+                // reset form values
+                document.getElementById("item1Qty").value = "";
+                document.getElementById("item2Qty").value = "";
+                document.getElementById("item3Qty").value = "";
+                document.getElementById("item4Qty").value = "";
+
+                document.getElementById("item1Total").value = "";
+                document.getElementById("item2Total").value = "";
+                document.getElementById("item3Total").value = "";
+                document.getElementById("item4Total").value = "";
+
+                document.getElementById("totalAmount").value = "";
+                document.getElementById("totalEarnings").value = "";
             } else {
                 // reset error message
                 resultArea.innerHTML = "";
