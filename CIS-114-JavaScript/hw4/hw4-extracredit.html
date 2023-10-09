@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CIS-114 JavaScript/Ajax Programming Homeworks">
+    <title>Homework 4 - Extra Credit</title>
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body>
+    <section>
+        <h3>Print Hollow Square</h3>
+        <form id="form">
+            <label for="number">Enter a number between 2 and 10</label>
+            <input type="number" id="number" min="2" max="10" name="number" required>
+
+            <br><br>
+
+            <button type="button" id="printButton">Print</button>
+            <button type="button" id="clearButton">Clear</button>
+        </form>
+
+        <div id="error"></div>
+        <div id="print"></div>
+
+    </section>
+    <div class="button">
+        <a href="../hw4.html">Back to Homework 4 page</a>
+        <a href="hw4-part1.html">Go to Part 1</a>
+        <a href="hw4-part2.html">Go to Part 2</a>
+    </div>
+    <script>
+        const input = document.getElementById('number');
+        const printBtn = document.getElementById('printButton');
+        const resetBtn = document.getElementById('clearButton');
+        const error = document.getElementById('error');
+        const print = document.getElementById('print');
+
+        // addEventListener for reset button
+        resetBtn.addEventListener('click', e => {
+            e.preventDefault();
+            input.value = "";
+            error.textContent = "";
+            print.textContent = "";
+        });
+
+        // addEventListener for input button
+        printBtn.addEventListener('click', e => {
+            let size = parseInt(input.value);
+            // Check if size is a positive integer between 2 and 10
+            if (isNaN(size) || size < 2 || size > 10 || !Number.isInteger(size)) {
+                error.innerHTML = `<span class="error">Please enter a valid number between 2 and 10</span>`;
+            } else {
+                error.textContent = "";  // Clear previous content
+                print.textContent = "";  // Clear previous content
+                displayHollowSquare(size);
+            }
+        });
+
+        function displayHollowSquare(size) {
+            let result = "<pre>";
+            // Outer loop for rows
+            for (let i = 1; i <= size; i++) {
+                // Inner loop for columns
+                for (let j = 1; j <= size; j++) {
+                    // Check the first or last row, or the first or last column
+                    // If true, add an asterisk, otherwise add a space for the hollow part
+                    if (i === 1 || i === size || j === 1 || j === size) {
+                        result += "* ";
+                    } else {
+                        result += "  ";
+                    }
+                }
+                // Move to the next line after each row is processed
+                result += "<br>";
+            }
+            result += "</pre>";
+
+            // Update the content of the print div
+            print.innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

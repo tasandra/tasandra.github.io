@@ -140,3 +140,13 @@ button {
 .error {
   color: red;
 }
+
+.odd-row {
+  text-align: center;
+  background-color: hsl(180, 38%, 64%);
+}
+
+.even-row {
+  text-align: center;
+  background-color: hsl(180, 52%, 96%);
+}

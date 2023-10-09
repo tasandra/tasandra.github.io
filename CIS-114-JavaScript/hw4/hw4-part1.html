@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 4 - Part 1</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h3>Calculate the product and sum</h3>
+
+        <h4>Using the for statement</h4>
+        <div id="forProduct"></div>
+        <div id="forSum"></div>
+
+        <h4>Using the while statement</h4>
+        <div id="whileProduct"></div>
+        <div id="whileSum"></div>
+
+    </section>
+    <div class="button">
+        <a href="../hw4.html">Back to Homework 4 page</a>
+        <a href="hw4-part2.html">Go to Part 2</a>
+    </div>
+    <script>
+        const forProduct = document.getElementById("forProduct");
+        const forSum = document.getElementById("forSum");
+        const whileProduct = document.getElementById("whileProduct");
+        const whileSum = document.getElementById("whileSum");
+        let product = 1;
+        let sum = 0;
+
+        forProduct.innerHTML = `The result of  `;
+        forSum.innerHTML = `The result of  `;
+        for (let i = 5; i <= 25; i += 4) {
+            product *= i;
+            if (i !== 5) {
+                forProduct.innerHTML += ` * ${i}`;
+            } else {
+                forProduct.innerHTML += ` ${i}`;
+            }
+            sum += i;
+            if (i !== 5) {
+                forSum.innerHTML += ` + ${i}`;
+            } else {
+                forSum.innerHTML += ` ${i}`;
+            }
+        }
+
+        forProduct.innerHTML += ` is ${product.toLocaleString()}`;
+        forSum.innerHTML += ` is ${sum.toLocaleString()}`;
+
+        let number = 3;
+        product = 1;
+        sum = 0;
+
+        whileProduct.innerHTML = `The result of  `;
+        whileSum.innerHTML = `The result of  `;
+        while (number <= 18) {
+            product *= number;
+            if (number !== 3) {
+                whileProduct.innerHTML += ` * ${number}`;
+            } else {
+                whileProduct.innerHTML += ` ${number}`;
+            }
+            sum += number;
+            if (number !== 3) {
+                whileSum.innerHTML += ` * ${number}`;
+            } else {
+                whileSum.innerHTML += ` ${number}`;
+            }
+            number += 3;
+        }
+        whileProduct.innerHTML += ` is ${product.toLocaleString()}`;
+        whileSum.innerHTML += ` is ${sum.toLocaleString()}`;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 4 - Part 2</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h3>Learn about compound interest (example on a principal of $1000)</h3>
+        <script>
+            let principal = 1000;
+            let numOfYears = 5;
+            let rates = [5, 6, 7];
+            let compoundingFrequencies = 1;
+
+            for (let i = 1; i <= rates.length; i++) {
+
+                var rate = rates[i - 1];
+
+                // Create a table
+                document.write(`<h4>Interest rate of ${rate}%</h4>`);
+                document.write('<table><tr><th>Year</th><th>Amount on deposit</th><th>Interest Rate</th></tr>');
+
+                // Loop through rows
+                for (let j = 1; j <= numOfYears; j++) {
+                    generateCompoundInterestTable(principal, rate, j, compoundingFrequencies);
+                }
+
+                document.write('</table>');
+            }
+
+            function generateCompoundInterestTable(principal, rate, time, compoundingFrequencies) {
+                const interest = calculateCompoundInterest(principal, rate, time, compoundingFrequencies);
+                const loanAtEnd = principal + interest;
+
+                if (time % 2 == 1) {
+                    document.write('<tr class="odd-row">');
+                } else {
+                    document.write('<tr class="even-row">');
+                }
+
+                document.write(`<td>${time}</td>`);
+                document.write(`<td>${loanAtEnd.toFixed(2)}</td>`);
+                document.write(`<td>${rate / 100}</td>`);
+
+                document.write('</tr>');
+            }
+
+            function calculateCompoundInterest(principal, rate, time, compoundingFrequency) {
+                // Convert rate to a decimal
+                const decimalRate = rate / 100;
+
+                // Calculate compound interest
+                const compoundInterest = principal * Math.pow(1 + decimalRate / compoundingFrequency, compoundingFrequency * time) - principal;
+
+                return compoundInterest;
+            }
+
+        </script>
+
+    </section>
+    <div class="button">
+        <a href="../hw4.html">Back to Homework 4 page</a>
+        <a href="hw4-part1.html">Go to Part 1</a>
+        <a href="hw4-extracredit.html">Go to Extra Credit</a>
+    </div>
+</body>
+
+</html>
