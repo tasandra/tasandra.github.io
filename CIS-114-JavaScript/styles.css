@@ -165,4 +165,5 @@ select {
 .menus button {
   width: fit-content;
   padding: .5em;
+  cursor: pointer;
 }
