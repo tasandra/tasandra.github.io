@@ -150,3 +150,19 @@ button {
   text-align: center;
   background-color: hsl(180, 52%, 96%);
 }
+
+select {
+  max-width: 20%;
+  padding: .5em;
+}
+
+.menus {
+  display: flex;
+  align-items: flex-end;
+  gap: 2em;
+}
+
+.menus button {
+  width: fit-content;
+  padding: .5em;
+}

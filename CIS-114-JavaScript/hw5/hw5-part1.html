@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 5 - Part 1</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h3>Radio buttons and Checkboxes</h3>
+
+        <form id="userForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <br><br>
+
+            <label>Age Group:</label><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ageGroup1" name="ageGroup" value="lessThan21"> Less than
+            21<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ageGroup2" name="ageGroup" value="21to50"> 21 - 50<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ageGroup3" name="ageGroup" value="olderThan50"> Older than
+            50<br>
+
+            <br>
+
+            <label>Browsers Used:</label><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="browser1" name="browsers" value="firefox"> Firefox<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="browser2" name="browsers" value="edge"> Edge<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="browser3" name="browsers" value="chrome"> Chrome<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="browser4" name="browsers" value="safari"> Safari<br>
+
+            <br>
+
+            <label for="moviePreference">Movie Preference:</label>
+            <select id="moviePreference" name="moviePreference" required>
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="documentary">Documentary</option>
+                <option value="scienceFiction">Science Fiction</option>
+            </select>
+
+            <br><br>
+
+            <button type="button" onclick="validateForm()">Submit</button>
+            <button type="button" onclick="clearForm()">Clear</button>
+        </form>
+
+        <div id="outputArea"></div>
+
+
+    </section>
+    <div class="button">
+        <a href="../hw5.html">Back to Homework 5 page</a>
+        <a href="hw5-part2.html">Go to Part 2</a>
+    </div>
+    <script>
+        function validateForm() {
+            var fullName = document.getElementById('fullName').value;
+            var ageGroup = document.querySelector('input[name="ageGroup"]:checked');
+            var browsers = document.querySelectorAll('input[name="browsers"]:checked');
+            var moviePreference = document.getElementById('moviePreference').value;
+            var outputArea = document.getElementById('outputArea');
+
+            if (!fullName || !ageGroup || browsers.length === 0 || !moviePreference) {
+                outputArea.innerHTML = `<span class="error">Error: Please fill out all fields.</span>`;
+            } else {
+                outputArea.innerHTML = `<span id="resultArea">Thanks, your data was submitted!</span>`;
+            }
+        }
+
+        function clearForm() {
+            document.getElementById('userForm').reset();
+            outputArea.textContent = "";
+        }
+    </script>
+</body>
+
+</html>

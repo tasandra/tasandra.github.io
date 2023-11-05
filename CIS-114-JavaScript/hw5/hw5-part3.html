@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 5 - Part 3</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h2>State Information</h2>
+
+        <form id="stateForm">
+            <label for="stateInput">Enter State Name or Abbreviation:</label>
+            <input type="text" id="stateInput" name="stateInput" required>
+            <br><br>
+            <button type="button" id="stateInfo">Get State Info</button>
+            <button type="button" id="clearForm">Clear</button>
+            <br><br>
+            <div id="resultArea"></div>
+        </form>
+
+
+    </section>
+    <div class="button">
+        <a href="../hw5.html">Back to Homework 5 page</a>
+        <a href="hw5-part2.html">Go to Part 2</a>
+        <a href="hw5-part1.html">Go to Part 1</a>
+    </div>
+    <script>
+        var censusData = [
+            ["AL", "Alabama", "Montgomery", 4903185],
+            ["AK", "Alaska", "Juneau", 731545],
+            ["AZ", "Arizona", "Phoenix", 7278717],
+            ["AR", "Arkansas", "Little Rock", 3017825],
+            ["CA", "California", "Sacramento", 39512223],
+            ["CO", "Colorado", "Denver", 5758736],
+        ];
+        var stateInfo = document.getElementById("stateInfo");
+        var clearForm = document.getElementById("clearForm");
+
+        stateInfo.addEventListener('click', e => {
+            var stateInput = document.getElementById('stateInput').value.toUpperCase();
+            var resultArea = document.getElementById('resultArea');
+            var isValid = false;
+
+            for (var i = 0; i < censusData.length; i++) {
+                var stateData = censusData[i];
+                var stateAbbr = stateData[0];
+                var stateName = stateData[1];
+                var capital = stateData[2];
+                var population = stateData[3];
+
+                if (stateInput === stateAbbr || stateInput === stateName.toUpperCase()) {
+                    isValid = true;
+                    var outputMessage = `<span id="resultArea">Thanks for your inquiry, here is the information you requested:<br><br>` +
+                        `State Abbr = ` + stateAbbr + `<br>` +
+                        `State Name = ` + stateName + `<br>` +
+                        `Capital = ` + capital + `<br>` +
+                        `Population = ` + population.toLocaleString() + `</span>`;
+                    resultArea.innerHTML = outputMessage;
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                resultArea.innerHTML = `<span class="error">Sorry, we do not have information about this state!
+                    We only have information about:</span><br>`;
+                for (var i = 0; i < censusData.length; i++) {
+                    var stateData = censusData[i];
+                    var stateName = stateData[1];
+                    resultArea.innerHTML += stateName + `<br>`;
+                }
+            }
+        });
+
+        clearForm.addEventListener('click', e => {
+            document.getElementById('stateForm').reset();
+            document.getElementById('resultArea').innerHTML = "";
+        });
+
+    </script>
+
+</body>
+</html>

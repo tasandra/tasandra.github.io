@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 5 - Part 2</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h2>Website Navigation</h2>
+
+        <h3>Dropdown Menu 1 - Best Flights search engines</h3>
+        <select id="dropdown1">
+            <option value="https://www.google.com/travel/flights">Google Flights</option>
+            <option value="https://www.priceline.com">Priceline</option>
+            <option value="https://www.expedia.com">Expedia</option> 
+        </select>
+    
+        <h3>Dropdown Menu 2 - Best Hotels search engines</h3>
+        <div class="menus">
+            <select id="dropdown2">
+                <option value="https://www.booking.com">Booking</option>
+                <option value="https://www.agoda.com/">Agoda</option>
+                <option value="https://www.tripadvisor.com">Tripadvisor</option>
+            </select>
+            <button id="navigateButton">Go to selected website</button>
+        </div>
+    </section>
+    <div class="button">
+        <a href="../hw5.html">Back to Homework 5 page</a>
+        <a href="hw5-part3.html">Go to Part 3</a>
+        <a href="hw5-part1.html">Go to Part 1</a>
+    </div>
+    <script>
+        var dropdown1 = document.getElementById("dropdown1");
+        var dropdown2 = document.getElementById("dropdown2");
+        var navigateButton = document.getElementById("navigateButton");
+
+        dropdown1.addEventListener('change', e => {
+            var selectedOption = dropdown1.options[dropdown1.selectedIndex].value;
+            window.open(selectedOption, '_blank');
+        });
+
+        navigateButton.addEventListener('click', e => {
+            var selectedOption = dropdown2.options[dropdown2.selectedIndex].value;
+            window.open(selectedOption, '_blank');
+        });
+        
+    </script>
+</body>
+
+</html>
