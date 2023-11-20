@@ -63,9 +63,8 @@
                 firstThreeDigits.value = numbers.slice(3, 6).join("");
                 lastFourDigits.value = numbers.slice(6).join("");
             } else {
-                // Display error message if the phone number format is incorrect
+                // Display error message if the phone number format is incorrect and clear inboxes
                 error.innerHTML = `<span class="error">Please enter the phone number in the format (999) 999-9999.</span>`;
-                // Clear the read-only input boxes
                 areaCode.value = "";
                 firstThreeDigits.value = "";
                 lastFourDigits.value = "";
@@ -81,4 +80,7 @@
             error.innerHTML = "";
         });
 
-    
+    </script>
+
+</body>
+</html>
