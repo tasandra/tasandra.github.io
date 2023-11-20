@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 6 - Part 2</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h2>Search Character in Content</h2>
+
+        <form id="searchForm">
+            <label for="longContent">Long Content:</label><br><br>
+            <textarea id="longContent" name="longContent" rows="4" cols="50"></textarea><br><br>
+
+            <label for="searchChar">Search Character:</label>
+            <input type="text" id="searchChar" name="searchChar" maxlength="1"><br><br>
+
+            <button type="button" id="getResult">Submit</button>   
+
+        </form>
+
+        <div id="outputResult"></div>
+
+    </section>
+    <div class="button">
+        <a href="../hw6.html">Back to Homework 6 page</a>
+        <a href="hw6-part3.html">Go to Part 3</a>
+        <a href="hw6-part1.html">Go to Part 1</a>
+    </div>
+    <script>
+        var getResult = document.getElementById("getResult");
+        var outputResult = document.getElementById("outputResult");
+
+        getResult.addEventListener('click', e => {
+            var content = document.getElementById("longContent").value;
+            var charToSearch = document.getElementById("searchChar").value.toLowerCase(); 
+            var charCount = content.toLowerCase().split(charToSearch).length - 1;
+
+            if (charCount > 0) {
+                outputResult.innerHTML = `<span id="resultArea">Character '` + charToSearch + `' found ` + charCount + ` times in the content.</span>`;
+            } else {
+                var newWindow = window.open("", "_blank", "width=300, height=100, top=100, left=100");
+                newWindow.document.write("<p>Search character '" + charToSearch + "' not found in the content you typed.</p>");
+                newWindow.document.write("<button onclick='window.close()'>Close Window</button>");
+
+                outputResult.innerHTML = ""; 
+            }
+        });
+
+    </scr

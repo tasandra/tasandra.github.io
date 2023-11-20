@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 6 - Part 1</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h3>AT LEAST 4 decimal positions!</h3>
+
+        <label for="numberInput">Enter a number with at least 4 decimal positions:</label>
+        <input type="text" id="numberInput" name="numberInput" required>
+        <button type="button" id="getResult">Submit</button>
+
+        <div id="outputResult"></div>
+
+    </section>
+    <div class="button">
+        <a href="../hw6.html">Back to Homework 6 page</a>
+        <a href="hw6-part2.html">Go to Part 2</a>
+    </div>
+    <script>
+        var getResult = document.getElementById("getResult");
+        var outputResult = document.getElementById("outputResult");
+
+        getResult.addEventListener('click', e => {
+            var userInput = document.getElementById("numberInput").value;
+            var parsedNumber = parseFloat(userInput);
+
+            // Check if the input is a valid number with at least 4 decimal positions
+            if (!isNaN(parsedNumber) && (parsedNumber % 1 !== 0) && (parsedNumber.toString().split('.')[1].length >= 4)) {
+
+                var roundResult = Math.round(parsedNumber);
+                var sqrtResult = Math.round(Math.sqrt(parsedNumber));
+                var floorResult = Math.floor(parsedNumber);
+                var tenthsResult = parsedNumber.toFixed(1);
+                var hundredthsResult = parsedNumber.toFixed(2);
+                var thousandthsResult = parsedNumber.toFixed(3);
+
+                var output = "Original Number: " + parsedNumber + "<br>" +
+                    "Rounded to Nearest Integer: " + roundResult + "<br>" +
+                    "Square Root and Rounded to Integer: " + sqrtResult + "<br>" +
+                    "Rounded Down to Nearest Integer: " + floorResult + "<br>" +
+                    "Rounded to Nearest Tenths: " + tenthsResult + "<br>" +
+                    "Rounded to Nearest Hundredths: " + hundredthsResult + "<br>" +
+                    "Rounded to Nearest Thousandths: " + thousandthsResult;
+
+                    outputResult.innerHTML = `<span id="resultArea">` + output + `</span>`;
+
+            } else {
+                outputResult.innerHTML = `<span class="error">You need to type a number with at least 4 decimals, please try again!</span>`;
+
+            }
+        });
+
+    </script>
+</body>
+
+</html>

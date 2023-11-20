@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 6 - Part 3</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h2>Phone Number Extractor</h2>
+
+        <form id="phoneNumberForm">
+            <label for="phoneNumberInput">Enter Phone Number (e.g., (999) 999-9999):</label>
+            <input type="text" id="phoneNumberInput" name="phoneNumberInput" placeholder="(999) 999-9999" maxlength="14">
+            <br><br>
+    
+            <label for="areaCode">Area Code:</label>
+            <input type="text" id="areaCode" name="areaCode" readonly>
+            <br><br>
+    
+            <label for="firstThreeDigits">First 3 Digits:</label>
+            <input type="text" id="firstThreeDigits" name="firstThreeDigits" readonly>
+            <br><br>
+    
+            <label for="lastFourDigits">Last 4 Digits:</label>
+            <input type="text" id="lastFourDigits" name="lastFourDigits" readonly>
+            <br><br>
+    
+            <button type="button" id="getResult">Extract Numbers</button>
+            <button type="button" id="clearForm">Clear Form</button>
+        </form>
+    
+        <div id="errorMessage"></div>
+
+    </section>
+    <div class="button">
+        <a href="../hw6.html">Back to Homework 6 page</a>
+        <a href="hw6-part2.html">Go to Part 2</a>
+        <a href="hw6-part1.html">Go to Part 1</a>
+    </div>
+    <script>
+        
+        getResult.addEventListener('click', e => {
+            var getResult = document.getElementById("getResult");
+            var error = document.getElementById("errorMessage");
+            var phoneNumberInput = document.getElementById("phoneNumberInput");
+            var regex = /^\(\d{3}\) \d{3}-\d{4}$/;
+            var areaCode = document.getElementById("areaCode");
+            var firstThreeDigits = document.getElementById("firstThreeDigits");
+            var lastFourDigits = document.getElementById("lastFourDigits");
+
+            if (regex.test(phoneNumberInput.value)) {
+                // Clear any previous error messages
+                error.innerHTML = "";
+
+                // Extract numbers using regex and display in the read-only input boxes
+                var numbers = phoneNumberInput.value.match(/\d/g);
+                areaCode.value = numbers.slice(0, 3).join("");
+                firstThreeDigits.value = numbers.slice(3, 6).join("");
+                lastFourDigits.value = numbers.slice(6).join("");
+            } else {
+                // Display error message if the phone number format is incorrect
+                error.innerHTML = `<span class="error">Please enter the phone number in the format (999) 999-9999.</span>`;
+                // Clear the read-only input boxes
+                areaCode.value = "";
+                firstThreeDigits.value = "";
+                lastFourDigits.value = "";
+            }
+        });
+
+        clearForm.addEventListener('click', e => {
+             // Clear all input boxes and error message
+             phoneNumberInput.value = "";
+             areaCode.value = "";
+             firstThreeDigits.value = "";
+             lastFourDigits.value = "";
+            error.innerHTML = "";
+        });
+
+    
