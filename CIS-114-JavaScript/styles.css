@@ -132,7 +132,7 @@ button {
   margin-top: .5em;
 }
 
-#resultArea {
+#resultArea, #welcomeMessage{
   color: green;
 }
 

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 7 - Part 1</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <section>
+        <h3>Change Styles</h3>
+        <form id="styleForm">
+            <label>Background Color:</label><br><br>
+            <input type="radio" name="bgColor" value="lightblue"> Light Blue<br>
+            <input type="radio" name="bgColor" value="lightgreen"> Light Green<br><br>
+        
+            <label>Text Style:</label><br><br>
+            <input type="checkbox" name="underline"> Underline<br>
+            <input type="checkbox" name="bold"> Bold<br>
+            <input type="checkbox" name="italic"> Italic<br><br>
+        
+            <label>Font Size:</label><br><br>
+            <select name="fontSize">
+              <option value="1em">Small</option>
+              <option value="1.5em">Medium</option>
+              <option value="2em">Large</option>
+            </select>
+        </form>
+
+        <div id="styleArea">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam 
+                esse doloremque nisi ullam perspiciatis nesciunt, unde harum magni, iusto 
+                expedita! Id quia illo explicabo, doloremque dolores facilis officiis officia!
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam 
+                esse doloremque nisi ullam perspiciatis nesciunt, unde harum magni, iusto 
+                expedita! Id quia illo explicabo, doloremque dolores facilis officiis officia!
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam 
+                esse doloremque nisi ullam perspiciatis nesciunt, unde harum magni, iusto 
+                expedita! Id quia illo explicabo, doloremque dolores facilis officiis officia!
+            </p>
+          </div>
+
+    </section>
+    <div class="button">
+        <a href="../hw7.html">Back to Homework 7 page</a>
+        <a href="hw7-part2.html">Go to Part 2</a>
+    </div>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Form elements
+            const form = document.getElementById('styleForm');
+            const bgColorInputs = document.getElementsByName('bgColor');
+            const textStyleInputs = document.querySelectorAll('input[type=checkbox]');
+            const fontSizeSelect = document.querySelector('select[name="fontSize"]');
+            // Style area
+            const styleArea = document.getElementById('styleArea');
+      
+            // Add event listeners 
+            bgColorInputs.forEach(input => {
+              input.addEventListener('change', applyStyles);
+            });
+      
+            textStyleInputs.forEach(input => {
+              input.addEventListener('change', applyStyles);
+            });
+      
+            fontSizeSelect.addEventListener('change', applyStyles);
+      
+            // Function to apply styles to the style area
+            function applyStyles() {
+              // Reset styles
+              styleArea.style.backgroundColor = '';
+              styleArea.style.textDecoration = '';
+              styleArea.style.fontWeight = '';
+              styleArea.style.fontStyle = '';
+              styleArea.style.fontSize = '';
+      
+              bgColorInputs.forEach(input => {
+                if (input.checked) {
+                  styleArea.style.backgroundColor = input.value;
+                }
+              });
+      
+              textStyleInputs.forEach(input => {
+                if (input.checked) {
+                  switch (input.name) {
+                    case 'underline':
+                      styleArea.style.textDecoration = 'underline';
+                      break;
+                    case 'bold':
+                      styleArea.style.fontWeight = 'bold';
+                      break;
+                    case 'italic':
+                      styleArea.style.fontStyle = 'italic';
+                      break;
+                  }
+                }
+              });
+      
+              const selectedFontSize = fontSizeSelect.value;
+              styleArea.style.fontSize = selectedFontSize;
+            }
+          });
+  
+    </script>
+</body>
+
+</html>

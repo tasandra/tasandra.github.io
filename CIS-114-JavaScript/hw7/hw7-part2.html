@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+    <title>Homework 7 - Part 2</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to set cookies
+            function setCookie(name, value) {
+                document.cookie = `${name}=${value}; path=/`;
+            }
+
+            // Function to get cookie by name
+            function getCookie(name) {
+                const cookies = document.cookie.split('; ');
+                for (const cookie of cookies) {
+                    const [cookieName, cookieValue] = cookie.split('=');
+                    if (cookieName === name) {
+                        return cookieValue;
+                    }
+                }
+                return null;
+            }
+
+            // Check if the user has visited before
+            const userName = getCookie('user_name');
+            const userUsername = getCookie('user_username');
+
+            if (userName && userUsername) {
+                // User has visited before, display welcome back message
+                document.getElementById('welcomeMessage').textContent = `Welcome back, ${userName}!`;
+                // Hide the form
+                formContainer.style.display = 'none';
+            } else {
+                // User is visiting for the first time, show the form
+                document.getElementById('nameForm').addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    const nameInput = document.getElementById('nameInput');
+                    const usernameInput = document.getElementById('usernameInput');
+
+                    const enteredName = nameInput.value.trim();
+                    const enteredUsername = usernameInput.value.trim();
+
+                    if (enteredName && enteredUsername) {
+                        // Save cookies
+                        setCookie('user_name', enteredName);
+                        setCookie('user_username', enteredUsername);
+
+                        // Display welcome message
+                        document.getElementById('welcomeMessage').textContent = `Welcome, ${enteredName}!`;
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <section>
+        <h2>Cookies</h2>
+
+        <div id="formContainer">
+            <form id="nameForm">
+                <label for="nameInput">Name:</label>
+                <input type="text" id="nameInput" name="nameInput">
+
+                <br><br>
+
+                <label for="usernameInput">Username:</label>
+                <input type="text" id="usernameInput" name="usernameInput">
+
+                <br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div id="welcomeMessage"></div>
+
+    </section>
+    <div class="button">
+        <a href="../hw7.html">Back to Homework 7 page</a>
+        <a href="hw7-part1.html">Go to Part 1</a>
+    </div>
+
+</body>
+
+</html>
