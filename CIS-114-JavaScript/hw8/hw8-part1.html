@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JavaScript/Ajax Programming Homeworks">
+  <title>Homework 8 - Part 1</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <section>
+    <h3>Homework 8 - AJAX Application</h3>
+
+    <button id="button" type="button" onclick="toggleTable()">Get CD collection</button>
+    <table id="demo"></table>
+
+    <script>
+      let tableVisible = false;
+
+      function toggleTable() {
+        const button = document.getElementById("button");
+
+        if (tableVisible) {
+          // If the table is visible, hide it
+          document.getElementById("demo").innerHTML = "";
+          button.innerHTML = "Get CD collection";
+        } else {
+          // If the table is not visible, load the CD collection
+          button.innerHTML = "Close";
+          loadDoc();
+        }
+        // Toggle the visibility state
+        tableVisible = !tableVisible;
+      }
+
+      function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+          myFunction(this);
+        }
+        xhttp.open("GET", "cd_catalog.xml");
+        xhttp.send();
+      }
+
+      function myFunction(xml) {
+        const xmlDoc = xml.responseXML;
+        const x = xmlDoc.getElementsByTagName("CD");
+        let table = "<tr><th>Artist</th><th>Title</th></tr>";
+        for (let i = 0; i < x.length; i++) {
+          table += "<tr><td>" +
+            x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "</td></tr>";
+        }
+        document.getElementById("demo").innerHTML = table;
+      }
+    </script>
+
+    <h3>Explanation of AJAX</h3>
+    <p>In the provided HTML file, there's a JavaScript code segment responsible for implementing an
+      AJAX (Asynchronous JavaScript and XML) functionality to dynamically fetch and display a CD
+      collection stored in an XML file. The application begins by defining a button with the text
+      "Get CD collection" and an associated onclick event that triggers the function on click
+      to parse XML data.</p>
+
+    <h3>REST API Report: Flight Offer Search API</h3>
+
+    <p>As part of our ongoing efforts to enhance our travel-related services,
+      I have conducted an in-depth analysis of the Flight Offer Search API, a powerful tool
+      that can significantly elevate our project's capabilities.
+      This API is particularly relevant for our company, which specializes in developing
+      innovative travel applications.
+    </p>
+    <p>
+      The Flight Offer Search API provides responses in the widely adopted JSON format.
+    </p>
+    <p>
+      To access the Flight Offer Search API, developers are required to obtain an API key.
+      This key serves as a secure authentication mechanism, enabling controlled access and tracking
+      of usage. This security feature aligns with our commitment to protecting sensitive
+      travel-related data and ensuring a secure user experience.
+    </p>
+    <p>
+      The pricing model is flexible, allowing us to choose a plan that aligns with our project's
+      specific needs. This ensures that we only pay for the services we require,
+      optimizing our cost-efficiency.
+    </p>
+    <p>
+      The use of JSON for responses, secure API key authentication, flexible pricing plans,
+      and comprehensive documentation make it an ideal choice for enhancing our applications.
+      By integrating this API, we not only elevate the user experience but also ensure the
+      scalability and efficiency of our travel-related services. I recommend that our development
+      team explores the possibilities offered by the Flight Offer Search API to unlock new dimensions
+      in our travel applications.
+    </p>
+
+    <!-- External link to the Amadeus Flight Offers Search API documentation -->
+    <a href="https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search?ref=apilist.fun"
+      target="_blank" rel="noopener noreferrer">Flight Offers Search API Documentation</a>
+
+  </section>
+  <div class="button">
+    <a href="../hw8.html">Back to Homework 8 page</a>
+  </div>
+
+</body>
+
+</html>

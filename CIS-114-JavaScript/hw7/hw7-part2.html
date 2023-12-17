@@ -31,7 +31,7 @@
             const userUsername = getCookie('user_username');
 
             if (userName && userUsername) {
-                // User has visited before, display welcome back message
+                // if user has visited before, display welcome back message
                 document.getElementById('welcomeMessage').textContent = `Welcome back, ${userName}!`;
                 // Hide the form
                 formContainer.style.display = 'none';
