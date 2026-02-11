@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandra Tarasova - Web Development Class</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Homework 1 - Simple HTML & CSS</h1>
+        <button id="animateBtn">Start Animation</button>
+    </header>
+
+    <main>
+        <div class="intro">
+            <div class="intro-content">
+                <img src="Me.png" alt="Photo of Alexandra Tarasova">
+                <p>
+                    <strong>My name is Alexandra Tarasova.</strong> I'm a student passionate about web development and
+                    design. I enjoy creating beautiful and functional websites that provide great user experiences. In
+                    my
+                    free time, I like to explore new technologies and work on personal projects that challenge my
+                    skills.
+                </p>
+            </div>
+            <p>
+                I'm taking this class to build a strong foundation in web development. I want to learn industry-standard
+                practices and gain hands-on experience with HTML, CSS, and JavaScript. My goal is to become proficient
+                in creating responsive, accessible websites and eventually work as a front-end developer.
+            </p>
+        </div>
+
+        <section class="content-section">
+            <h2>Technologies for this Class</h2>
+            <ul>
+                <li><strong>HTML</strong></li>
+                <li><strong>CSS</strong></li>
+                <li><strong>JavaScript</strong></li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Helpful Resources</h2>
+            <ul>
+                <li><a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN Web Docs</a> -
+                    Comprehensive web
+                    development documentation</li>
+                <li><a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer">W3Schools</a> -
+                    Tutorials and references for web
+                    technologies
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        /*
+        $(document).ready(function () {
+            $("#animateBtn").click(function () {
+                $("h1").css("color", "blue");
+                $("h1").animate({ "font-size": "+=1rem" }, 1000);
+                $("h1").css({ "color": "red" });
+                $("h1").animate({ "font-size": "-=1rem" }, 2000);
+                $("h1").css("color", "black");
+                //var timer = setTimeout(function() {$("h2").css("color", "black")}, 5000);
+            });
+        });
+        */
+        $(document).ready(function () {
+            var originalFontSize = $('h1').css('font-size');
+            var originalColor = $('h1').css('color');
+
+            // Set initial border on image
+            $('img').css({
+                'border-width': '0px',
+                'border-style': 'solid',
+                'border-color': '#3498db'
+            });
+
+            $('#animateBtn').click(function () {
+                // Animate font size - grow then shrink back
+                $('h1').animate({
+                    fontSize: '+=1rem'
+                }, 1000).animate({
+                    fontSize: originalFontSize
+                }, 1000);
+
+                // Change color using css() and setTimeout
+                $('h1').css('color', '#e74c3c');
+                setTimeout(function () {
+                    $('h1').css('color', originalColor);
+                }, 2000);
+
+                // Add border around the image using animate
+                $('img').delay(2000).animate({
+                    borderWidth: '5px'
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>

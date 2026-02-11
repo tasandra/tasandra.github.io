@@ -107,3 +107,27 @@
      color: #2980b9;
      text-decoration: underline;
  }
+
+ #animateBtn {
+    margin-top: 5%;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: #3498db;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#animateBtn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#animateBtn:active {
+    transform: translateY(0);
+}
