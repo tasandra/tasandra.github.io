@@ -1,88 +1,134 @@
-function getLocation() {
-  const btn = document.getElementById("locateBtn");
-  const latEl = document.getElementById("latValue");
-  const lngEl = document.getElementById("lngValue");
-  const statusEl = document.getElementById("statusMsg");
-  const accuracyEl = document.getElementById("accuracyNote");
-  const addressBox = document.getElementById("addressBox");
-  const addressEl = document.getElementById("addressValue");
+var map = null;
+var marker = null;
 
-  // Check browser support
+function initMap(lat, lng) {
+  // Hide spinner, show map div
+  document.getElementById("mapSpinner").style.display = "none";
+  var mapEl = document.getElementById("map");
+  mapEl.style.display = "block";
+
+  if (map === null) {
+    // Create map for the first time
+    map = L.map("map").setView([lat, lng], 15);
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
+    }).addTo(map);
+
+    // Add marker with hover tooltip
+    marker = L.marker([lat, lng])
+      .addTo(map)
+      .bindTooltip("📍 You are here!", {
+        permanent: false, // shows on hover
+        direction: "top",
+        offset: [0, -10],
+        className: "you-are-here-tip",
+      })
+      .bindPopup(
+        "<strong>📍 You are here!</strong><br>Lat: " +
+          lat.toFixed(6) +
+          "<br>Lng: " +
+          lng.toFixed(6),
+      );
+
+    // Open popup immediately
+    marker.openPopup();
+  } else {
+    // Map already exists — just move the marker and re-centre
+    map.setView([lat, lng], 15);
+    marker.setLatLng([lat, lng]);
+    marker.openPopup();
+  }
+}
+
+function getLocation() {
+  var statusEl = document.getElementById("statusMsg");
+  var latEl = document.getElementById("latValue");
+  var lngEl = document.getElementById("lngValue");
+  var accuracyEl = document.getElementById("accuracyNote");
+  var addressBox = document.getElementById("addressBox");
+  var addressEl = document.getElementById("addressValue");
+  var btn = document.getElementById("locateBtn");
+  var spinner = document.getElementById("mapSpinner");
+
   if (!navigator.geolocation) {
-    statusEl.textContent =
-      "⚠️ Sorry, your browser does not support Geolocation.";
+    statusEl.textContent = "⚠️ Your browser does not support Geolocation.";
     statusEl.style.color = "#dc3545";
+    spinner.style.display = "none";
     return;
   }
 
-  // Loading state
-  btn.disabled = true;
-  btn.textContent = "⏳ Detecting...";
-  statusEl.textContent = "Waiting for your browser permission…";
+  // Reset display
+  statusEl.textContent = "⏳ Detecting your location…";
   statusEl.style.color = "#888";
   latEl.textContent = "…";
   lngEl.textContent = "…";
   accuracyEl.textContent = "";
   addressBox.style.display = "none";
+  if (map === null) {
+    spinner.style.display = "flex";
+  }
 
   navigator.geolocation.getCurrentPosition(
     function (position) {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      const acc = Math.round(position.coords.accuracy);
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+      var acc = Math.round(position.coords.accuracy);
 
       // Show coordinates
       latEl.textContent = lat.toFixed(6);
       lngEl.textContent = lng.toFixed(6);
       accuracyEl.textContent = "✅ Accuracy: approximately " + acc + " metres";
-      statusEl.textContent = "Location found! Looking up your address…";
+      statusEl.textContent = "📍 Location found! Looking up your address…";
       statusEl.style.color = "#3BCEAC";
 
-      // Reverse geocode with OpenStreetMap Nominatim (free, no API key needed)
-      const url =
-        "https://nominatim.openstreetmap.org/reverse?lat=" +
-        lat +
-        "&lon=" +
-        lng +
-        "&format=json";
+      // Draw / update map
+      initMap(lat, lng);
 
-      fetch(url, { headers: { "Accept-Language": "en" } })
-        .then(function (res) {
-          return res.json();
+      // Show refresh button
+      btn.style.display = "inline-block";
+
+      // Reverse geocode
+      fetch(
+        "https://nominatim.openstreetmap.org/reverse?lat=" +
+          lat +
+          "&lon=" +
+          lng +
+          "&format=json",
+        { headers: { "Accept-Language": "en" } },
+      )
+        .then(function (r) {
+          return r.json();
         })
         .then(function (data) {
           if (data && data.display_name) {
             addressEl.textContent = data.display_name;
             addressBox.style.display = "block";
             statusEl.textContent =
-              "📍 Location and address detected successfully!";
-          } else {
-            addressEl.textContent = "Address could not be determined.";
-            addressBox.style.display = "block";
+              "✅ Location and address detected successfully!";
           }
         })
         .catch(function () {
-          addressEl.textContent =
-            "Could not reach address lookup service. Check your connection.";
+          addressEl.textContent = "Address lookup unavailable.";
           addressBox.style.display = "block";
         });
-
-      btn.disabled = false;
-      btn.textContent = "🔄 Refresh Location";
     },
     function (error) {
-      let msg = "";
+      spinner.style.display = "none";
+      var msg = "";
       switch (error.code) {
         case error.PERMISSION_DENIED:
           msg =
-            "🚫 Permission denied. Please allow location access in your browser settings and try again.";
+            "🚫 Permission denied. Please allow location access and refresh the page.";
           break;
         case error.POSITION_UNAVAILABLE:
-          msg =
-            "📡 Location information is unavailable. Check your device settings.";
+          msg = "📡 Location unavailable. Check your device settings.";
           break;
         case error.TIMEOUT:
-          msg = "⏱️ The request timed out. Please try again.";
+          msg = "⏱️ Request timed out. Please refresh the page.";
           break;
         default:
           msg = "❓ An unknown error occurred.";
@@ -91,9 +137,12 @@ function getLocation() {
       statusEl.style.color = "#dc3545";
       latEl.textContent = "—";
       lngEl.textContent = "—";
-      btn.disabled = false;
+      btn.style.display = "inline-block";
       btn.textContent = "📡 Try Again";
     },
-    { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 },
+    { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 },
   );
 }
+
+// ── Auto-run on page load ──
+window.addEventListener("load", getLocation);

@@ -474,3 +474,123 @@ code.cap-code {
     line-height: 1.8;
     font-size: 1.05rem;
 }
+
+ @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+
+    :root { --primary:#FF6B35; --secondary:#FFD23F; --accent:#3BCEAC; --dark:#2D2D2D; }
+
+    body { font-family:'Nunito',sans-serif; background-color:#FFF9F0; }
+
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #FF9F1C 100%);
+      padding: 3.5rem 0 4.5rem;
+      color: white;
+    }
+    .page-header h1 {
+      font-family:'Fredoka One',cursive;
+      font-size: 3rem;
+      text-shadow: 3px 3px 0 rgba(0,0,0,.15);
+    }
+    .page-header p { font-size:1.1rem; color:var(--secondary); font-weight:600; }
+
+    .location-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+      padding: 2.5rem;
+    }
+
+    .pin-icon { font-size:4rem; display:block; margin-bottom:1rem; }
+
+    .coord-box {
+      background: #FFF8F0;
+      border: 2px solid #f5d9c8;
+      border-radius: 14px;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+    }
+    .coord-label {
+      font-size: .85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #aaa;
+      margin-bottom: .3rem;
+    }
+    .coord-value {
+      font-family: 'Fredoka One', cursive;
+      font-size: 2rem;
+      color: var(--primary);
+      min-height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .address-box {
+      background: #F0FBF8;
+      border: 2px solid #b8ead9;
+      border-radius: 14px;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      display: none;
+    }
+    .address-value {
+      font-size: 1.05rem;
+      color: var(--dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .accuracy-note { font-size:.88rem; color:#aaa; }
+
+    #statusMsg { font-size:1rem; font-weight:600; min-height:1.5rem; }
+
+    .btn-locate {
+      background: linear-gradient(135deg, var(--primary), #FF9F1C);
+      border: none;
+      color: white;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.15rem;
+      border-radius: 50px;
+      padding: .7rem 2.2rem;
+      box-shadow: 0 4px 14px rgba(255,107,53,.35);
+      transition: transform .15s, box-shadow .15s;
+      cursor: pointer;
+    }
+    .btn-locate:hover { transform:translateY(-2px); box-shadow:0 7px 20px rgba(255,107,53,.45); color:white; }
+    .btn-locate:disabled { opacity:.65; transform:none; cursor:not-allowed; }
+
+    /* Map container */
+    #map {
+      height: 380px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0,0,0,.12);
+      display: none;          /* hidden until location arrives */
+    }
+
+    /* Loading spinner shown while waiting for map */
+    #mapSpinner {
+      height: 380px;
+      border-radius: 16px;
+      background: #FFF8F0;
+      border: 2px dashed #f5d9c8;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #aaa;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    #mapSpinner .spinner-border { color: var(--primary); width:2.5rem; height:2.5rem; margin-bottom:.8rem; }
+
+    .info-strip {
+      background: #F0FBF8;
+      border-left: 5px solid var(--accent);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      font-size: .95rem;
+      color: #555;
+    }
