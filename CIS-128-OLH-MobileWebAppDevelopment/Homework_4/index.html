@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2c3e7a" />
+    <meta name="description" content="Learn about Progressive Web Applications." />
+    <title>PWA Explorer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <h1>Progressive Web Apps</h1>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content-wrap">
+
+        <!-- Background Selector Card -->
+        <section class="card bg-selector-card" aria-label="Background selector">
+            <h2>Customize the Background</h2>
+            <div class="selector-row">
+                <label for="bgSelect">Choose a background theme:</label>
+                <select id="bgSelect" name="bgSelect">
+                    <option value="white" selected>— Select a theme —</option>
+                    <option value="blue">🌊 Light Blue</option>
+                    <option value="gold">🌟 Light Gold</option>
+                </select>
+                <button id="applyBtn" type="button">Apply</button>
+            </div>
+            <p class="selector-hint">The background image will be cached by the service worker, so it works offline too!
+            </p>
+        </section>
+
+        <!-- What is a PWA -->
+        <section class="card">
+            <h2>What is a Progressive Web Application?</h2>
+            <p>
+                Progressive Web Applications (PWAs) are web-based applications built using standard web technologies
+                like HTML, CSS, and JavaScript. Unlike traditional web pages, PWAs are designed to be reliable, fast,
+                and engaging, effectively blurring the line between websites and native mobile or desktop applications.
+                The term “Progressive Web Application” was coined by Google engineers Alex Russell and Frances Berriman
+                in 2015. Since then, PWAs have become a fundamental pattern in modern web development.
+            </p>
+        </section>
+
+        <!-- Key Characteristics -->
+        <section class="card">
+            <h2>Key Characteristics of a PWA</h2>
+            <p>
+                Progressive Web Apps (PWAs) are defined by their progressive nature, responsiveness, HTTPS security, and
+                use of Service Workers for offline capability, background sync, and push notifications. They are also
+                installable, allowing users to add them to their home screens.
+            </p>
+        </section>
+
+        <!-- Name / Local Storage -->
+        <section class="card name-card">
+            <h2>Personalize Your Experience</h2>
+            <p>Type your name below. It will be saved to <strong>Local Storage</strong> so the app remembers you even
+                after you close this tab.</p>
+
+            <div class="name-input-row">
+                <label for="userName">Your Name:</label>
+                <input type="text" id="userName" name="userName" placeholder="e.g. Alex Rivera"
+                    autocomplete="given-name" />
+            </div>
+
+            <p class="greeting-text" id="greetingText">
+                Hello, <span id="displayName">friend</span>! Welcome to PWA Explorer.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <p>PWA Explorer &mdash; Homework 4 &bull; Built with vanilla HTML, CSS &amp; JavaScript</p>
+    </footer>
+
+    <script src="app.js"></script>
+    </body>
+
+</html>

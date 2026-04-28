@@ -1,0 +1,407 @@
+/* =====================================================
+   PWA Explorer — style.css
+   Responsive Web Design via @media queries (no framework)
+   ===================================================== */
+
+/* ---- CSS Variables ---- */
+:root {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+
+  --clr-bg: #ffffff;
+  --clr-surface: #ffffff;
+  --clr-border: #e2e2e2;
+  --clr-text: #1a1a2e;
+  --clr-text-muted: #5a5a7a;
+  --clr-accent: #2c3e7a;
+  --clr-accent-light: #e8ecf8;
+  --clr-btn: #2c3e7a;
+  --clr-btn-hover: #1a2756;
+  --clr-btn-text: #ffffff;
+
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(44, 62, 122, 0.10);
+  --transition: 0.35s ease;
+
+  --max-width: 780px;
+  --gap: 2rem;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  background-image: none;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  transition: background-color var(--transition), background-image var(--transition);
+  min-height: 100vh;
+}
+
+/* ---- Header ---- */
+.site-header {
+  background: linear-gradient(135deg, #1a2756 0%, #2c3e7a 60%, #3d5a99 100%);
+  color: #fff;
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.header-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 0.75rem;
+}
+
+.site-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.header-sub {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255,255,255,0.78);
+}
+
+/* ---- Content Wrap ---- */
+.content-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--gap) 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+/* ---- Cards ---- */
+.card {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 8px 36px rgba(44, 62, 122, 0.15);
+}
+
+.card h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 4vw, 1.75rem);
+  font-weight: 700;
+  color: var(--clr-accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--clr-accent-light);
+}
+
+.card p {
+  color: var(--clr-text);
+  margin-bottom: 0.85rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.selector-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.selector-row label {
+  font-weight: 400;
+  white-space: nowrap;
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+}
+
+select#bgSelect {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--clr-border);
+  border-radius: 8px;
+  background: #f5f7ff;
+  color: var(--clr-text);
+  cursor: pointer;
+  flex: 1;
+  min-width: 160px;
+  outline-offset: 2px;
+  transition: border-color var(--transition);
+}
+
+select#bgSelect:focus {
+  border-color: var(--clr-accent);
+  outline: 2px solid rgba(44, 62, 122, 0.25);
+}
+
+button#applyBtn {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 1.4rem;
+  background: var(--clr-btn);
+  color: var(--clr-btn-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background var(--transition), transform 0.15s ease;
+  white-space: nowrap;
+}
+
+button#applyBtn:hover {
+  background: var(--clr-btn-hover);
+  transform: translateY(-1px);
+}
+
+button#applyBtn:active {
+  transform: translateY(0);
+}
+
+.selector-hint {
+  font-size: 0.82rem;
+  color: var(--clr-text-muted);
+  font-style: italic;
+  margin-top: 0.25rem !important;
+}
+
+.name-input-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.name-input-row label {
+  font-weight: 400;
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+input#userName {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--clr-border);
+  border-radius: 8px;
+  background: #fffdf4;
+  color: var(--clr-text);
+  flex: 1;
+  min-width: 180px;
+  outline-offset: 2px;
+  transition: border-color var(--transition);
+}
+
+input#userName:focus {
+  border-color: #c89c2b;
+  outline: 2px solid rgba(200, 156, 43, 0.25);
+}
+
+.greeting-text {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--clr-text-muted);
+  padding: 0.75rem 1rem;
+  background: #fffdf4;
+  border-radius: 8px;
+  border: 1px dashed #e0c97a;
+  transition: all var(--transition);
+}
+
+#displayName {
+  font-weight: 700;
+  font-style: normal;
+  color: #9a6f10;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  border-top: 1px solid var(--clr-border);
+  margin-top: 1rem;
+  background: rgba(255,255,255,0.7);
+}
+
+/* =====================================================
+   THEME OVERRIDES
+   ===================================================== */
+
+/* Light Blue Theme */
+body.theme-blue .site-header {
+  background: linear-gradient(135deg, #0a3d5c 0%, #1a6e9a 60%, #2e9bc9 100%);
+}
+body.theme-blue .card h2 {
+  color: #1a5f7a;
+}
+body.theme-blue .bg-selector-card {
+  border-left-color: #1a6e9a;
+}
+body.theme-blue select#bgSelect {
+  background: #eaf6fb;
+  border-color: #7ecbe8;
+}
+body.theme-blue button#applyBtn {
+  background: #1a6e9a;
+}
+body.theme-blue button#applyBtn:hover {
+  background: #0a4f72;
+}
+body.theme-blue input#userName:focus,
+body.theme-blue select#bgSelect:focus {
+  border-color: #1a6e9a;
+  outline-color: rgba(26, 110, 154, 0.25);
+}
+
+/* Light Gold Theme */
+body.theme-gold .site-header {
+  background: linear-gradient(135deg, #6b4400 0%, #c47f00 60%, #e8a800 100%);
+}
+body.theme-gold .site-header .header-eyebrow {
+  color: rgba(255, 240, 180, 0.80);
+}
+body.theme-gold .site-header .header-sub {
+  color: rgba(255, 240, 180, 0.85);
+}
+body.theme-gold .card h2 {
+  color: #7a4f00;
+}
+body.theme-gold .bg-selector-card {
+  border-left-color: #c47f00;
+}
+body.theme-gold select#bgSelect {
+  background: #fffbea;
+  border-color: #e0c060;
+}
+body.theme-gold button#applyBtn {
+  background: #a86800;
+}
+body.theme-gold button#applyBtn:hover {
+  background: #7a4a00;
+}
+body.theme-gold select#bgSelect:focus {
+  border-color: #a86800;
+  outline-color: rgba(168, 104, 0, 0.25);
+}
+
+/* =====================================================
+   RESPONSIVE WEB DESIGN — @media queries
+   ===================================================== */
+
+/* Tablet: 600px – 899px */
+@media (max-width: 899px) {
+  .site-header {
+    padding: 3rem 1.25rem 2.25rem;
+  }
+
+  .content-wrap {
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+/* Mobile: up to 599px */
+@media (max-width: 599px) {
+  .site-header {
+    padding: 2.25rem 1rem 1.75rem;
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
+    border-radius: 8px;
+  }
+
+  .selector-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .selector-row label {
+    margin-bottom: -0.25rem;
+  }
+
+  select#bgSelect {
+    width: 100%;
+  }
+
+  button#applyBtn {
+    width: 100%;
+    padding: 0.65rem 1rem;
+  }
+
+  .name-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input#userName {
+    width: 100%;
+  }
+
+  .content-wrap {
+    gap: 1.25rem;
+    padding: 1.25rem 0.75rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .site-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .card h2 {
+    font-size: 1.15rem;
+  }
+}
